@@ -108,3 +108,21 @@
     padding: 1.5rem 1rem 1rem 1.5rem;
     border-top-left-radius: 30px 30px;
 }
+
+
+.front-page__account-register {
+    border: none;
+    background-color: #0A0B0A;
+    color: white;
+    font-family: "Forum", sans-serif;
+    font-size: 18px;
+    padding: 1.25rem;
+    border-radius: 12px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+
+.front-page__account-register:hover {
+    background-color: #252825;
+}

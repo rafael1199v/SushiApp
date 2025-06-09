@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/blocks/modalMenu/modalMenu.css"/>
+<div class="modal-menu">
+    <div class="modal-menu__logo">
+        <img src="/assets/img/diamondIcon.svg" class="modal-menu__logo-diamond"/>
+        <div class="modal-menu__logo-line"></div>
+        <img src="/assets/img/diamondIcon.svg" class="modal-menu__logo-diamond"/>
+    </div>
+
+    <p class="modal-menu__item">
+        MENU
+    </p>
+    <p class="modal-menu__item">
+        RESERVATION
+    </p>
+    <p class="modal-menu__item">
+        ABOUT
+    </p>
+    <p class="modal-menu__item">
+        CONTACT
+    </p>
+    <p class="modal-menu__item">
+        BLOG
+    </p>
+    
+    <div class="modal-menu__logo">
+        <img src="/assets/img/diamondIcon.svg" class="modal-menu__logo-diamond"/>
+        <div class="modal-menu__logo-line"></div>
+        <img src="/assets/img/diamondIcon.svg" class="modal-menu__logo-diamond"/>
+    </div>
+</div>

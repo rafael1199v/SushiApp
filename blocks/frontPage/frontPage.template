@@ -14,6 +14,10 @@
             <div class="front-page__account-icon">
                 <img src="/assets/img/iconamoon_profile-fill.svg" class="front-page__icon-person"/>
             </div>
+            <button class="front-page__account-register">
+                REGISTRATION    
+            </button>
+
             <div class="front-page__account-icon">
                 <img src="/assets/img/cart.svg" class="front-page__icon-cart"/>
             </div>

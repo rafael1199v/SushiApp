@@ -9,6 +9,15 @@ class FrontPage extends BaseHTMLElement {
     async connectedCallback() {
         await this.loadHTML('/blocks/frontPage/frontPage.template');
 
+        if(!app.isAuthenticated) {
+            const personIcon = this.shadowRoot.querySelector(".front-page__account-icon");
+            personIcon.style.display = 'none';
+        }
+        else {
+            const registrationButton = this.shadowRoot.querySelector(".front-page__account-register");
+            registrationButton.style.display = 'none';
+        }
+        
     }
 }
 

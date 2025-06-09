@@ -19,4 +19,6 @@
             BOOK A TABLE
         </div>
     </div>
+
+    <modal-menu class="navbar__modal-menu navbar__modal-menu--hide"></modal-menu>
 </div>

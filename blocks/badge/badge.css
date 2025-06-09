@@ -8,4 +8,13 @@
     justify-content: center;
     border-radius: 100%;
     background-color: rgba(24, 24, 24, 0.5);
+    cursor: pointer;
+}
+
+.badge:hover {
+    background-color: #EFE7D2;
+}
+
+.badge:hover .badge__icon {
+    filter: invert(1);
 }
