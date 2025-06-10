@@ -8,6 +8,22 @@ class ModalMenu extends BaseHTMLElement {
 
     async connectedCallback() {
         await this.loadHTML("/blocks/modalMenu/modalMenu.template");
+        
+        this.applyRoutes();
+    }
+
+
+    applyRoutes() {
+        const modal = this.shadowRoot.querySelector(".modal-menu");
+        
+        modal.addEventListener("click", (event) => {
+            if(!event.target.classList.contains("modal-menu__item"))
+                return;
+            
+            event.preventDefault();
+            const href = event.target.getAttribute("href");
+            globalThis.app.router.go(href);
+        })
 
     }
 }

@@ -6,21 +6,21 @@
         <img src="/assets/img/diamondIcon.svg" class="modal-menu__logo-diamond"/>
     </div>
 
-    <p class="modal-menu__item">
+    <a class="modal-menu__item" href="/menu">
         MENU
-    </p>
-    <p class="modal-menu__item">
+    </a>
+    <a class="modal-menu__item" href="/book">
         RESERVATION
-    </p>
-    <p class="modal-menu__item">
+    </a>
+    <a class="modal-menu__item" href="/about">
         ABOUT
-    </p>
-    <p class="modal-menu__item">
+    </a>
+    <a class="modal-menu__item" href="/contact">
         CONTACT
-    </p>
-    <p class="modal-menu__item">
+    </a>
+    <a class="modal-menu__item" href="/blog">
         BLOG
-    </p>
+    </a>
     
     <div class="modal-menu__logo">
         <img src="/assets/img/diamondIcon.svg" class="modal-menu__logo-diamond"/>

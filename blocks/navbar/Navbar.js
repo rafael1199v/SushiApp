@@ -23,7 +23,29 @@ class Navbar extends BaseHTMLElement {
             modalMenu.classList.add("navbar__modal-menu--hide");
         })
 
+        this.applyRoutes();
+    }
 
+
+    applyRoutes() {
+        const listLinks = this.shadowRoot.querySelector(".navbar__menu");
+        const logo = this.shadowRoot.querySelector(".navbar__logo");
+
+        listLinks.addEventListener("click", (event) => {
+            if(!event.target.classList.contains("navbar__menu-item"))
+                return;
+
+            event.preventDefault();
+            const href = event.target.getAttribute("href");
+
+            globalThis.app.router.go(href);
+        });
+
+
+        logo.addEventListener("click", (event) =>{
+            event.preventDefault();
+            globalThis.app.router.go("/");
+        });
     }
 
 }

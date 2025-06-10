@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+a {
+  color: #EFE7D2;
+  text-decoration: none;
+}
 
 .modal-menu {
     display: flex;

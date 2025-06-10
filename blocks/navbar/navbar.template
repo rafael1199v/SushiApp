@@ -9,15 +9,15 @@
         <img alt="logo" src="/assets/img/Logo.svg" class="navbar__logo-icon">
     </div>
     <div class="navbar__menu">
-        <div class="navbar__menu-item">
+        <a class="navbar__menu-item" href="/menu">
             MENU
-        </div>
-        <div class="navbar__menu-item">
+        </a>
+        <a class="navbar__menu-item" href="/about">
             ABOUT
-        </div>
-        <div class="navbar__menu-item navbar__menu-item--button">
+        </a>
+        <a class="navbar__menu-item navbar__menu-item--button" href="/book">
             BOOK A TABLE
-        </div>
+        </a>
     </div>
 
     <modal-menu class="navbar__modal-menu navbar__modal-menu--hide"></modal-menu>
