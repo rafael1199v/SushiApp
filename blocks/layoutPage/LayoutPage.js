@@ -23,7 +23,7 @@ class LayoutPage extends BaseHTMLElement {
         }
 
         const wrapper = this.shadowRoot.querySelector(".layout-page__image-wrapper");
-        console.log(wrapper);
+        const titleElement = this.shadowRoot.querySelector(".layout-page__title");
 
         this.addEventListener("change-page", (event) => {
             wrapper.classList.remove(this.backgroundClassImage);
@@ -31,13 +31,14 @@ class LayoutPage extends BaseHTMLElement {
             switch(event.detail.route) {
                 case "/":
                     this.backgroundClassImage = "layout-page__image-wrapper--front-page";
+                    titleElement.innerHTML = "SUSHI <br/> SENSATION";
                     break;
                 case "/menu":
                     this.backgroundClassImage = "layout-page__image-wrapper--menu";
+                    titleElement.innerHTML = "MENU"
                     break;
             }
 
-            console.log("WTF", this.backgroundClassImage);
             wrapper.classList.add(this.backgroundClassImage);
         })
     }

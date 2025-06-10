@@ -32,10 +32,13 @@
 
 .layout-page__image-wrapper--front-page {
     background-image: url(/assets/img/front-page-image.jpg);
+    width: 1436px;
+    
 }
 
 .layout-page__image-wrapper--menu {
     background-image: url(/assets/img/menu-page.png);
+    width: 928px;
 }
 
 .layout-page__title {
@@ -97,5 +100,5 @@
 }
 
 .layout-page__content {
-    flex-shrink: 0;
+  
 }
