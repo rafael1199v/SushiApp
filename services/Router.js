@@ -1,5 +1,7 @@
 class Router {
 
+    lastClassBackground = "";
+
     init() {
         window.addEventListener("popstate", (event) => {
             event.preventDefault();
@@ -53,6 +55,12 @@ class Router {
         if(!contentElement)
             return;
         
+        layoutPage.dispatchEvent(new CustomEvent("change-page", {
+            detail: {
+                route
+            }
+        }))
+
         if(layoutPage.firstElementChild)
             layoutPage.firstElementChild.remove();
 
@@ -61,6 +69,9 @@ class Router {
         window.scrollY = 0;
         window.scrollX = 0;
     }
+
+
+    
     
 }
 

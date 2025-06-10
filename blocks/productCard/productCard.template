@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="/blocks/productCard/productCard.css"/>
 <div class="product-card">
-    <img alt="Product" src="" class="product-card__img"/>
+    <div class="product-card__img-wrapper">
+        <img alt="Product" src="" class="product-card__img"/>
+    </div>
+    
     <div class="product-card__content">
         <div class="product-card__header">
             <h5 class="product-card__title">

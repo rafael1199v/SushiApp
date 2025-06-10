@@ -21,13 +21,13 @@ class ProductCard extends HTMLElement {
 
         const titleElement = this.querySelector(".product-card__title");
         const descriptionElement = this.querySelector(".product-card__description");
-        //const imageElement = this.querySelector(".product-card__img");
-        //const priceElement = this.querySelector(".product-card__price");
+        const imageElement = this.querySelector(".product-card__img");
+        const priceElement = this.querySelector(".product-card__price");
 
         titleElement.textContent = title;
         descriptionElement.textContent = description;
-        //imageElement.src = src;
-        //priceElement.textContent = price;
+        imageElement.src = src;
+        priceElement.textContent = price;
     }
 
 }

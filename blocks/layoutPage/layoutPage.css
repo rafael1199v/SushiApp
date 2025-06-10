@@ -23,12 +23,19 @@
 }
 
 .layout-page__image-wrapper {
-    background-image: url(/assets/img/front-page-image.jpg);
     background-size: cover;
     height: 100%;
     width: 100%;
     position: relative;
     border-radius: 1rem;
+}
+
+.layout-page__image-wrapper--front-page {
+    background-image: url(/assets/img/front-page-image.jpg);
+}
+
+.layout-page__image-wrapper--menu {
+    background-image: url(/assets/img/menu-page.png);
 }
 
 .layout-page__title {
@@ -87,4 +94,8 @@
 
 .layout-page__account-register:hover {
     background-color: #252825;
+}
+
+.layout-page__content {
+    flex-shrink: 0;
 }

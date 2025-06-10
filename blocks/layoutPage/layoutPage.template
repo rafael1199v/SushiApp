@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/blocks/layoutPage/layoutPage.css"/>
 <section class="layout-page">
-    <div class="layout-page__image-wrapper">
+    <div class="layout-page__image-wrapper layout-page__image-wrapper--front-page">
         <navbar-menu class="layout-page__menu"></navbar-menu>
         <p class="layout-page__title">SUSHI <br/> SENSATION</p>
 

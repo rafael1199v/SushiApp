@@ -14,20 +14,28 @@
                 <product-card class="menu-page__category-item" 
                     data-title="Spicy Tuna Maki"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$5"
                 ></product-card>
                 <product-card class="menu-page__category-item" 
                     data-title="Mango Maki"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$10"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
                     data-title="Salmon Maki"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$2"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
                     data-title="Tuna Maki"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$100"
                 ></product-card>
             </div>
         </div>
@@ -38,21 +46,29 @@
                 <product-card class="menu-page__category-item" 
                     data-title="Volcano Delight"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$10"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
                     data-title="Rainbow Fusion"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$10"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
                     data-title="Dragon Elegance"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$10"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
                     data-title="Sunset Serenity"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$10"
                 ></product-card>
 
                 
@@ -65,21 +81,29 @@
                 <product-card class="menu-page__category-item" 
                     data-title="Spicy Tuna Maki"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$10"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
                     data-title="Mystic Garden"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$10"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
                     data-title="Ocean Breeze"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$10"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
                     data-title="Tokio Blossom"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
+                    data-src="/assets/img/product1.png"
+                    data-price="$10"
                 ></product-card>
             </div>
         </div>
