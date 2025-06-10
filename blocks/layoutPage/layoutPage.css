@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:host {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.layout-page {
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+.layout-page__menu {
+    position: absolute;
+    left: 41px;
+    top: 41px;
+}
+
+.layout-page__image-wrapper {
+    background-image: url(/assets/img/front-page-image.jpg);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border-radius: 1rem;
+}
+
+.layout-page__title {
+    font-family: "Forum", sans-serif;
+    font-size: 140px;
+    color: #EFE7D2;
+    max-width: 68.1875rem;
+    left: 77px;
+    bottom: 52px;
+    position: absolute;
+}
+
+.layout-page__account {
+    display: flex;
+    gap: 1.5rem;
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+}
+
+.layout-page__account-icon {
+    padding: 1rem;
+    background-color: #0A0B0A;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.layout-page__socials {
+    position: absolute;
+    display: flex;
+    gap: 0.5rem;
+    bottom: 0;
+    right: 0;
+    background-color: #0A0B0A;
+    padding: 1.5rem 1rem 1rem 1.5rem;
+    border-top-left-radius: 30px 30px;
+}
+
+
+.layout-page__account-register {
+    border: none;
+    background-color: #0A0B0A;
+    color: white;
+    font-family: "Forum", sans-serif;
+    font-size: 18px;
+    padding: 1.25rem;
+    border-radius: 12px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+
+
+.layout-page__account-register:hover {
+    background-color: #252825;
+}
