@@ -1,0 +1,7 @@
+.product-card__title {
+    color: rgba(239, 231, 210, 1);
+    font-family: "Forum", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    text-transform: uppercase;
+}

@@ -22,8 +22,7 @@ class Router {
                 contentElement = document.createElement("front-page");
                 break;
             case "/menu":
-                contentElement = document.createElement("h1");
-                contentElement.textContent = "Menu";
+                contentElement = document.createElement("menu-page");
                 break;
             case "/about":
                 contentElement = document.createElement("h1");

@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-page {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+
+.menu-page__navbar {
+    display: flex;
+    gap: 0.25rem;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.menu-page__category-title {
+    font-family: "Forum", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: rgba(239, 231, 210, 1);
+}
