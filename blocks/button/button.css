@@ -11,11 +11,16 @@
     border-radius: 8px;
     text-transform: uppercase;
     display: inline-block;
+    cursor: pointer;
 }
 
-.button:hover {
+.button:focus {
     background-color: rgba(239, 231, 210, 1);
     color: rgba(24, 24, 24, 1);
     font-family: "Forum", sans-serif;
     font-weight: 400;
+}
+
+.button:hover {
+    border-color: rgba(239, 231, 210, 1);
 }

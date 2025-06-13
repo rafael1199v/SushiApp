@@ -9,7 +9,22 @@
     </div>
     <div class="menu-page__content">
         <div class="menu-page__category-section">
-            <h1 class="menu-page__category-title">Maki</h1>
+
+            <div class="menu-page__category-title">
+                <div class="menu-page__category-logo">
+                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
+                    <div class="menu-page__logo-line"></div>
+                </div>
+                
+                <h1 class="menu-page__category-title-content">Maki</h1>
+
+                <div class="menu-page__category-logo">
+                    <div class="menu-page__logo-line"></div>
+                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
+                </div>
+                
+            </div>
+
             <div class="menu-page__category__items">
                 <product-card class="menu-page__category-item" 
                     data-title="Spicy Tuna Maki"
@@ -41,7 +56,20 @@
         </div>
 
         <div class="menu-page__category-section">
-            <h1 class="menu-page__category-title">Uramaki</h1>
+            <div class="menu-page__category-title">
+                <div class="menu-page__category-logo">
+                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
+                    <div class="menu-page__logo-line"></div>
+                </div>
+                
+                <h1 class="menu-page__category-title-content">Uramaki</h1>
+
+                <div class="menu-page__category-logo">
+                    <div class="menu-page__logo-line"></div>
+                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
+                </div>
+                
+            </div>
             <div class="menu-page__category__items">
                 <product-card class="menu-page__category-item" 
                     data-title="Volcano Delight"
@@ -76,7 +104,20 @@
         </div>
 
         <div class="menu-page__category-section">
-            <h1 class="menu-page__category-title">Special Rolls</h1>
+            <div class="menu-page__category-title">
+                <div class="menu-page__category-logo">
+                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
+                    <div class="menu-page__logo-line"></div>
+                </div>
+                
+                <h1 class="menu-page__category-title-content">Special Rolls</h1>
+
+                <div class="menu-page__category-logo">
+                    <div class="menu-page__logo-line"></div>
+                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
+                </div>
+                
+            </div>
             <div class="menu-page__category__items">
                 <product-card class="menu-page__category-item" 
                     data-title="Spicy Tuna Maki"

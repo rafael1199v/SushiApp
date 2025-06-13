@@ -12,6 +12,7 @@
     border-radius: 12px;
     overflow: hidden;
     flex-shrink: 0;
+    position: relative;
 }
 
 .product-card__img {
@@ -54,4 +55,27 @@
     flex-direction: column;
     gap: 0.25rem;
     justify-content: center;
+}
+
+.product-card__add-button {
+    background-color: rgba(239, 231, 210, 1);
+    display: flex;
+    position: absolute;
+    left: 11px;
+    bottom: 6px;
+    justify-content: center;
+    align-items: center;
+    padding: 4.17px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.product-card__add-button:hover .product-card__add-icon-fill {
+  fill: rgba(239, 231, 210, 1);
+}
+
+
+.product-card__add-button:hover {
+    background-color: rgba(13, 14, 14, 1);
+    border: 2px solid rgba(239, 231, 210, 1);
 }
