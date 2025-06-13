@@ -23,22 +23,17 @@
 }
 
 .layout-page__image-wrapper {
+    --image-url: url(/assets/img/front-page-image.jpg);
+    --image-width: 100%;
+    --image--height: 100%;
+
     background-size: cover;
-    height: 100%;
-    width: 100%;
+    height: var(--image--height);
+    width: var(--image-width);
+    background-image: var(--image-url);
+
     position: relative;
     border-radius: 1rem;
-}
-
-.layout-page__image-wrapper--front-page {
-    background-image: url(/assets/img/front-page-image.jpg);
-    width: 1436px;
-    
-}
-
-.layout-page__image-wrapper--menu {
-    background-image: url(/assets/img/menu-page.png);
-    width: 928px;
 }
 
 .layout-page__title {
@@ -70,8 +65,10 @@
 
 
 .layout-page__socials {
+    --socials-display: flex;
+
     position: absolute;
-    display: flex;
+    display: var(--socials-display);
     gap: 0.5rem;
     bottom: 0;
     right: 0;

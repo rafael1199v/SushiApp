@@ -31,12 +31,14 @@
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$5"
+                    data-product-id="1"
                 ></product-card>
                 <product-card class="menu-page__category-item" 
                     data-title="Mango Maki"
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$10"
+                    data-product-id="2"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
@@ -44,6 +46,7 @@
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$2"
+                    data-product-id="3"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
@@ -51,6 +54,7 @@
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$100"
+                    data-product-id="4"
                 ></product-card>
             </div>
         </div>
@@ -76,6 +80,7 @@
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$10"
+                    data-product-id="5"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
@@ -83,6 +88,7 @@
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$10"
+                    data-product-id="6"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
@@ -90,6 +96,7 @@
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$10"
+                    data-product-id="7"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
@@ -97,6 +104,7 @@
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$10"
+                    data-product-id="8"
                 ></product-card>
 
                 
@@ -124,6 +132,7 @@
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$10"
+                    data-product-id="9"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
@@ -131,6 +140,7 @@
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$10"
+                    data-product-id="10"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
@@ -138,6 +148,7 @@
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$10"
+                    data-product-id="11"
                 ></product-card>
 
                 <product-card class="menu-page__category-item" 
@@ -145,6 +156,7 @@
                     data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
                     data-src="/assets/img/product1.png"
                     data-price="$10"
+                    data-product-id="12"
                 ></product-card>
             </div>
         </div>

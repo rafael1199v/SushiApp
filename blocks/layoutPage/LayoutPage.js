@@ -5,8 +5,6 @@ class LayoutPage extends BaseHTMLElement {
 
     constructor(){ 
         super();
-
-        this.backgroundClassImage = "layout-page__image-wrapper--front-page";
     }
 
 
@@ -24,22 +22,33 @@ class LayoutPage extends BaseHTMLElement {
 
         const wrapper = this.shadowRoot.querySelector(".layout-page__image-wrapper");
         const titleElement = this.shadowRoot.querySelector(".layout-page__title");
+        const socials = this.shadowRoot.querySelector(".layout-page__socials");
 
         this.addEventListener("change-page", (event) => {
-            wrapper.classList.remove(this.backgroundClassImage);
-
+            
             switch(event.detail.route) {
                 case "/":
-                    this.backgroundClassImage = "layout-page__image-wrapper--front-page";
+                    wrapper.style.setProperty("--image-url", `url(/assets/img/front-page-image.jpg)`);
+                    wrapper.style.setProperty("--image-width", `100%`);
+                    socials.style.setProperty("--socials-display", "flex");
                     titleElement.innerHTML = "SUSHI <br/> SENSATION";
                     break;
                 case "/menu":
-                    this.backgroundClassImage = "layout-page__image-wrapper--menu";
-                    titleElement.innerHTML = "MENU"
+                    wrapper.style.setProperty("--image-url", `url(/assets/img/menu-page.png)`);
+                    wrapper.style.setProperty("--image-width", `928px`);
+                    titleElement.innerHTML = "MENU";
+                    socials.style.setProperty("--socials-display", "none");
                     break;
+
             }
 
-            wrapper.classList.add(this.backgroundClassImage);
+        });
+
+
+        this.addEventListener("see-item", (event) => {
+            wrapper.style.setProperty("--image-url", `url(${event.detail.imgUrl})`);
+            wrapper.style.setProperty("--image-width", `928px`);
+            titleElement.innerHTML = event.detail.title;
         })
     }
 

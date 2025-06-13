@@ -3,7 +3,7 @@
 .product-card {
     display: flex;
     gap: 1.5rem;
-    
+    cursor: pointer;
 }
 
 .product-card__img-wrapper {
