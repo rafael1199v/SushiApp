@@ -7,6 +7,7 @@ import MenuPage from "./blocks/menuPage/MenuPage.js";
 import router from "./services/Router.js";
 import Buttton from "./blocks/button/Button.js"
 import ProductCard from "./blocks/productCard/ProductCard.js";
+import AboutPage from "./blocks/aboutPage/AboutPage.js";
 
 
 globalThis.app = {};

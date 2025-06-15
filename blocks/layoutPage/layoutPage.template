@@ -30,8 +30,32 @@
             </svg>
         </div>
     </div>
+    
     <div class="layout-page__content">
-       <slot></slot>
+        <slot></slot>
+
+         <footer class="layout-page__footer">
+            <div class="layout-page__footer-copyright">
+                <p>Licensing</p>
+                <img src="/assets/img/diamondIcon.svg" class="modal-menu__logo-diamond"/>
+                <p>Styleguide</p>
+            </div>
+         </footer>
     </div>
+
+    <!-- <div class="layout-page__main">
+         <div class="layout-page__content">
+            <slot></slot>
+
+            <footer class="layout-page__footer">
+                <h1>ASDASDASDAS</h1>
+            </footer>
+        </div>
+
+        <footer class="layout-page__footer">
+            <h1>ASDASDASDAS</h1>
+        </footer>
+    </div> -->
+    
     
 </section>

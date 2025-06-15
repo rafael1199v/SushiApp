@@ -2,7 +2,8 @@ export const LAYOUT_COMMAND = {
     CHANGE_BACKGROUND: 'change-background',
     TOGGLE_SOCIALS: 'toggle-socials',
     CHANGE_TITLE: 'change-title',
-    TOGGLE_ADD_BUTTON: 'toggle-add-button'
+    TOGGLE_ADD_BUTTON: 'toggle-add-button',
+    TOGGLE_FOOTER: 'toggle-footer'
 };
 
 
@@ -56,6 +57,16 @@ export const LayoutCommandExecutor = {
                 }
 
                 break;
+            
+            case LAYOUT_COMMAND.TOGGLE_FOOTER:
+                const footer = layoutPage.shadowRoot.querySelector("footer");
+
+                if(!footer)
+                    return;
+
+                footer.style.setProperty("--display-footer", `${command.args.show ? 'flex' : 'none'}`)
+                break;
+            
         }   
     },
 

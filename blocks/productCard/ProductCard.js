@@ -50,7 +50,7 @@ class ProductCard extends BaseHTMLElement {
             }));
 
             const commands = [];
-            commands.push(new Command(LAYOUT_COMMAND.CHANGE_BACKGROUND, { url: src, width: '928px', height: '100%'}));
+            commands.push(new Command(LAYOUT_COMMAND.CHANGE_BACKGROUND, { url: src, width: '928px', height: '94vh'}));
             commands.push(new Command(LAYOUT_COMMAND.CHANGE_TITLE, { title: title }));
             commands.push(new Command(LAYOUT_COMMAND.TOGGLE_ADD_BUTTON, { show: true, productId: productId }));
             
