@@ -1,13 +1,13 @@
-class BadgeIcon extends HTMLElement {
+import BaseHTMLElement from "../base/BaseHTMLElement.js";
+
+class BadgeIcon extends BaseHTMLElement {
     
     constructor() {
         super();
     }
 
     async connectedCallback() {
-        const response = await fetch("/blocks/badge/badge.template");
-        const html = await response.text();
-        this.innerHTML = html;
+        await this.loadHTML("/blocks/badge/badge.template");
 
         const imgElement = this.querySelector(".badge__icon");
 

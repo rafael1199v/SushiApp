@@ -4,6 +4,7 @@ class FrontPage extends BaseHTMLElement {
 
     constructor() {
         super();
+        this.attachShadow({ mode: 'open' });
     }
 
     async connectedCallback() {

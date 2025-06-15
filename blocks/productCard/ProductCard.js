@@ -1,18 +1,15 @@
-class ProductCard extends HTMLElement {
+import BaseHTMLElement from "../base/BaseHTMLElement.js";
+import { LAYOUT_COMMAND, LayoutCommandExecutor } from "../../services/LayoutCommand.js";
+import Command from "../../services/Command.js";
+
+class ProductCard extends BaseHTMLElement {
 
     constructor() {
         super();
     }
 
-    async loadHMTL(path) {
-        const response = await fetch(path);
-        const html = await response.text();
-
-        this.innerHTML = html;
-    }
-
     async connectedCallback() {
-        await this.loadHMTL("/blocks/productCard/productCard.template");
+        await this.loadHTML("/blocks/productCard/productCard.template");
 
         const title = this.dataset.title;
         const description = this.dataset.description;
@@ -46,13 +43,18 @@ class ProductCard extends HTMLElement {
 
             this.dispatchEvent(new CustomEvent("see-item", {
                 detail: {
-                    imgUrl: src,
-                    productId: productId,
-                    title: title
+                    productId: productId
                 },
                 bubbles: true,
                 composed: true
             }));
+
+            const commands = [];
+            commands.push(new Command(LAYOUT_COMMAND.CHANGE_BACKGROUND, { url: src, width: '928px', height: '100%'}));
+            commands.push(new Command(LAYOUT_COMMAND.CHANGE_TITLE, { title: title }));
+            commands.push(new Command(LAYOUT_COMMAND.TOGGLE_ADD_BUTTON, { show: true, productId: productId }));
+            
+            LayoutCommandExecutor.multipleExecute(commands);
         });
 
         titleElement.textContent = title;

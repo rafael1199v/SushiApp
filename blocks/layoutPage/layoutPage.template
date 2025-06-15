@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/blocks/layoutPage/layoutPage.css"/>
 <section class="layout-page">
-    <div class="layout-page__image-wrapper layout-page__image-wrapper--front-page">
+    <div class="layout-page__image-wrapper">
         <navbar-menu class="layout-page__menu"></navbar-menu>
         <p class="layout-page__title">SUSHI <br/> SENSATION</p>
 
@@ -21,7 +21,13 @@
             <div class="layout-page__account-icon">
                 <img src="/assets/img/cart.svg" class="layout-page__icon-cart"/>
             </div>
-            
+        </div>
+
+
+        <div class="layout-page__add-button">
+            <svg width="40" height="40" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.8334 6.83171H6.83335V11.8317H5.16669V6.83171H0.166687V5.16504H5.16669V0.165039H6.83335V5.16504H11.8334V6.83171Z" fill="#272723" class="layout-page__add-icon-fill"/>
+            </svg>
         </div>
     </div>
     <div class="layout-page__content">

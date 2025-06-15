@@ -5,6 +5,7 @@ class LayoutPage extends BaseHTMLElement {
 
     constructor(){ 
         super();
+        this.attachShadow({ mode: 'open' });
     }
 
 
@@ -20,40 +21,20 @@ class LayoutPage extends BaseHTMLElement {
             registrationButton.style.display = 'none';
         }
 
-        const wrapper = this.shadowRoot.querySelector(".layout-page__image-wrapper");
-        const titleElement = this.shadowRoot.querySelector(".layout-page__title");
-        const socials = this.shadowRoot.querySelector(".layout-page__socials");
+        // const wrapper = this.shadowRoot.querySelector(".layout-page__image-wrapper");
+        // const titleElement = this.shadowRoot.querySelector(".layout-page__title");
 
-        this.addEventListener("change-page", (event) => {
-            
-            switch(event.detail.route) {
-                case "/":
-                    wrapper.style.setProperty("--image-url", `url(/assets/img/front-page-image.jpg)`);
-                    wrapper.style.setProperty("--image-width", `100%`);
-                    socials.style.setProperty("--socials-display", "flex");
-                    titleElement.innerHTML = "SUSHI <br/> SENSATION";
-                    break;
-                case "/menu":
-                    wrapper.style.setProperty("--image-url", `url(/assets/img/menu-page.png)`);
-                    wrapper.style.setProperty("--image-width", `928px`);
-                    titleElement.innerHTML = "MENU";
-                    socials.style.setProperty("--socials-display", "none");
-                    break;
+        const addButtonLayout = this.shadowRoot.querySelector(".layout-page__add-button");
 
-            }
+        // this.addEventListener("see-item", (event) => {
+        //     addButtonLayout.dataset.productId = event.detail.productId;
+        //     console.log(addButtonLayout);
+        // });
 
-        });
-
-
-        this.addEventListener("see-item", (event) => {
-            wrapper.style.setProperty("--image-url", `url(${event.detail.imgUrl})`);
-            wrapper.style.setProperty("--image-width", `928px`);
-            titleElement.innerHTML = event.detail.title;
+        addButtonLayout.addEventListener("click", () => {
+            alert(`Añadido al carrito el producto con Id = ${addButtonLayout.dataset.productId}`);
         })
     }
-
-
-
 }
 
 customElements.define("layout-page", LayoutPage);

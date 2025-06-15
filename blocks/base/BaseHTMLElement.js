@@ -2,7 +2,6 @@ class BaseHTMLElement extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: 'open' });
     }
 
 
@@ -10,7 +9,7 @@ class BaseHTMLElement extends HTMLElement {
         const response = await fetch(path);
         const html = await response.text();
 
-        this.shadowRoot.innerHTML = html;
+        this.shadowRoot ? this.shadowRoot.innerHTML = html : this.innerHTML = html;
     }
 
 }

@@ -1,18 +1,13 @@
-class Button extends HTMLElement {
+import BaseHTMLElement from "../base/BaseHTMLElement.js";
+
+class Button extends BaseHTMLElement {
 
     constructor() {
         super();
     }
 
-    async loadHMTL(path) {
-        const response = await fetch(path);
-        const html = await response.text();
-
-        this.innerHTML = html;
-    }
-
     async connectedCallback() {
-        await this.loadHMTL("/blocks/button/button.template");
+        await this.loadHTML("/blocks/button/button.template");
         
         const button = this.querySelector(".button");
         const title = this.dataset.title;

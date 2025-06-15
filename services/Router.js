@@ -1,3 +1,7 @@
+import Command from "./Command.js";
+import { IMAGE_PAGES } from "./conf/ImagePagesConst.js";
+import { LAYOUT_COMMAND, LayoutCommandExecutor } from "./LayoutCommand.js";
+
 class Router {
 
     lastClassBackground = "";
@@ -16,16 +20,31 @@ class Router {
         if(addToHistory)
             history.pushState({ route }, "", route);
 
-        const layoutPage = document.getElementById("main");
+        const layoutPage = document.querySelector("layout-page")
         let contentElement = null;
+        const pageConfig = {};
 
         switch(route) {
             case "/":
                 contentElement = document.createElement("front-page");
+                pageConfig.url = IMAGE_PAGES.FRONT_PAGE.url;
+                pageConfig.title = IMAGE_PAGES.FRONT_PAGE.title;
+                pageConfig.width = IMAGE_PAGES.FRONT_PAGE.width;
+                pageConfig.height = IMAGE_PAGES.FRONT_PAGE.height;
+                pageConfig.socials = IMAGE_PAGES.FRONT_PAGE.socials;
+
                 break;
+
             case "/menu":
                 contentElement = document.createElement("menu-page");
+                pageConfig.url = IMAGE_PAGES.MENU_PAGE.url;
+                pageConfig.title = IMAGE_PAGES.MENU_PAGE.title;
+                pageConfig.width = IMAGE_PAGES.MENU_PAGE.width;
+                pageConfig.height = IMAGE_PAGES.MENU_PAGE.height;
+                pageConfig.socials = IMAGE_PAGES.MENU_PAGE.socials;
+
                 break;
+
             case "/about":
                 contentElement = document.createElement("h1");
                 contentElement.textContent = "About";
@@ -55,16 +74,19 @@ class Router {
         if(!contentElement)
             return;
         
-        layoutPage.dispatchEvent(new CustomEvent("change-page", {
-            detail: {
-                route
-            }
-        }))
 
         if(layoutPage.firstElementChild)
             layoutPage.firstElementChild.remove();
 
         layoutPage.appendChild(contentElement);
+
+        const commands = [];
+        commands.push(new Command(LAYOUT_COMMAND.CHANGE_BACKGROUND, { url: pageConfig.url, width: pageConfig.width, height: pageConfig.height }));
+        commands.push(new Command(LAYOUT_COMMAND.CHANGE_TITLE, { title: pageConfig.title }));
+        commands.push(new Command(LAYOUT_COMMAND.TOGGLE_SOCIALS, { show: pageConfig.socials }));
+        commands.push(new Command(LAYOUT_COMMAND.TOGGLE_ADD_BUTTON, { show: false }));
+
+        LayoutCommandExecutor.multipleExecute(commands);
 
         window.scrollY = 0;
         window.scrollX = 0;

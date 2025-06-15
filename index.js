@@ -11,7 +11,7 @@ import ProductCard from "./blocks/productCard/ProductCard.js";
 
 globalThis.app = {};
 
-app.isAuthenticated = false;
+app.isAuthenticated = true;
 app.router = router;
 
 document.addEventListener("DOMContentLoaded", () => {

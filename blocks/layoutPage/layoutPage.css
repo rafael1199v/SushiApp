@@ -40,10 +40,12 @@
     font-family: "Forum", sans-serif;
     font-size: 140px;
     color: #EFE7D2;
-    max-width: 68.1875rem;
+    max-width: 51rem;
     left: 77px;
     bottom: 52px;
     position: absolute;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
 }
 
 .layout-page__account {
@@ -98,4 +100,30 @@
 
 .layout-page__content {
   
+}
+
+
+.layout-page__add-button {
+    --add-button-display: none;
+    
+    background-color: rgba(239, 231, 210, 1);
+    display: var(--add-button-display);
+    position: absolute;
+    right: 68px;
+    bottom: 86px;
+    justify-content: center;
+    align-items: center;
+    padding: 4.17px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.layout-page__add-button:hover .layout-page__add-icon-fill {
+  fill: rgba(239, 231, 210, 1);
+}
+
+
+.layout-page__add-button:hover {
+    background-color: rgba(13, 14, 14, 1);
+    border: 2px solid rgba(239, 231, 210, 1);
 }
