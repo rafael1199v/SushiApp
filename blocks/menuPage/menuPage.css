@@ -11,8 +11,8 @@
 }
 
 .menu-page {
-    /* overflow-y: scroll; */
-    /* height: 100%; */
+    /* overflow-y: scroll;
+    height: 100%; */
     padding: 2rem 6rem 5rem 6rem;
     gap: 4rem;
     display: flex;

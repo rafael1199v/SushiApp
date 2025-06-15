@@ -12,7 +12,7 @@ import AboutPage from "./blocks/aboutPage/AboutPage.js";
 
 globalThis.app = {};
 
-app.isAuthenticated = true;
+app.isAuthenticated = false;
 app.router = router;
 
 document.addEventListener("DOMContentLoaded", () => {
