@@ -1,7 +1,7 @@
 export const IMAGE_PAGES = {
     FRONT_PAGE: {
         url: '/assets/img/front-page-image.jpg',
-        width: '100%',
+        width: '77%',
         height: '94vh',
         title: "Sushi Sensation",
         socials: true,

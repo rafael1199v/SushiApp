@@ -19,5 +19,29 @@ class ProductList {
     filterByCategory(categoryId){
         return this.#products.filter(product => product.categoryId == categoryId);
     }
+
+    setProducts(newProducts) {
+        this.#products = newProducts;
+    }
+
+
+    groupByCategories() {
+        const result = {};
+
+        for(let product of this.#products) {
+            const categoryId = product.categoryId;
+
+            if(!result[categoryId])
+                result[categoryId] = [];
+
+            result[categoryId].push(product);
+        }
+
+
+        return result;
+    }
     
 }
+
+
+export default ProductList;

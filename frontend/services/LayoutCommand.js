@@ -10,11 +10,11 @@ export const LAYOUT_COMMAND = {
 export const LayoutCommandExecutor = {
 
     execute(command) {
-        const layoutPage = document.querySelector('layout-page');
+        const layoutPage = document.querySelector('.layout-page');
 
         switch(command.name){
             case LAYOUT_COMMAND.CHANGE_BACKGROUND:
-                const wrapper = layoutPage.shadowRoot.querySelector(".layout-page__image-wrapper");
+                const wrapper = layoutPage.querySelector(".layout-page__image-wrapper");
             
                 if(!wrapper)
                     return;
@@ -25,7 +25,7 @@ export const LayoutCommandExecutor = {
                 break;
 
             case LAYOUT_COMMAND.TOGGLE_SOCIALS:
-                const socials = layoutPage.shadowRoot.querySelector(".layout-page__socials");
+                const socials = layoutPage.querySelector(".layout-page__socials");
 
                 if(!socials)
                     return;
@@ -34,7 +34,7 @@ export const LayoutCommandExecutor = {
                 break;
 
             case LAYOUT_COMMAND.CHANGE_TITLE:
-                const titleElement = layoutPage.shadowRoot.querySelector(".layout-page__title");
+                const titleElement = layoutPage.querySelector(".layout-page__title");
 
                 if(!titleElement)
                     return;
@@ -43,7 +43,7 @@ export const LayoutCommandExecutor = {
                 break;
 
             case LAYOUT_COMMAND.TOGGLE_ADD_BUTTON:
-                const addButton = layoutPage.shadowRoot.querySelector(".layout-page__add-button");
+                const addButton = layoutPage.querySelector(".layout-page__add-button");
 
                 if(!addButton)
                     return;
@@ -59,7 +59,7 @@ export const LayoutCommandExecutor = {
                 break;
             
             case LAYOUT_COMMAND.TOGGLE_FOOTER:
-                const footer = layoutPage.shadowRoot.querySelector("footer");
+                const footer = layoutPage.querySelector("footer");
 
                 if(!footer)
                     return;

@@ -18,7 +18,7 @@ class Router {
         if(addToHistory)
             history.pushState({ route }, "", route);
 
-        const layoutPage = document.querySelector("layout-page")
+        const mainContent = document.querySelector(".layout-page__content-main");
         let contentElement = null;
         const pageConfig = {};
 
@@ -96,10 +96,10 @@ class Router {
             return;
         
 
-        if(layoutPage.firstElementChild)
-            layoutPage.firstElementChild.remove();
+        if(mainContent.firstElementChild)
+            mainContent.firstElementChild.remove();
 
-        layoutPage.appendChild(contentElement);
+        mainContent.appendChild(contentElement);
 
         const commands = [];
         commands.push(new Command(LAYOUT_COMMAND.CHANGE_BACKGROUND, { url: pageConfig.url, width: pageConfig.width, height: pageConfig.height }));

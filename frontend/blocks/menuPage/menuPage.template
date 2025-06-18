@@ -8,158 +8,30 @@
         <button-custom data-title="Special Rolls"></button-custom>
     </div>
     <div class="menu-page__content">
-        <div class="menu-page__category-section">
 
-            <div class="menu-page__category-title">
-                <div class="menu-page__category-logo">
-                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
-                    <div class="menu-page__logo-line"></div>
-                </div>
-                
-                <h1 class="menu-page__category-title-content">Maki</h1>
-
-                <div class="menu-page__category-logo">
-                    <div class="menu-page__logo-line"></div>
-                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
-                </div>
-                
-            </div>
-
-            <div class="menu-page__category__items">
-                <product-card class="menu-page__category-item" 
-                    data-title="Spicy Tuna Maki"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$5"
-                    data-product-id="1"
-                ></product-card>
-                <product-card class="menu-page__category-item" 
-                    data-title="Mango Maki"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$10"
-                    data-product-id="2"
-                ></product-card>
-
-                <product-card class="menu-page__category-item" 
-                    data-title="Salmon Maki"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$2"
-                    data-product-id="3"
-                ></product-card>
-
-                <product-card class="menu-page__category-item" 
-                    data-title="Tuna Maki"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$100"
-                    data-product-id="4"
-                ></product-card>
-            </div>
-        </div>
-
-        <div class="menu-page__category-section">
-            <div class="menu-page__category-title">
-                <div class="menu-page__category-logo">
-                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
-                    <div class="menu-page__logo-line"></div>
-                </div>
-                
-                <h1 class="menu-page__category-title-content">Uramaki</h1>
-
-                <div class="menu-page__category-logo">
-                    <div class="menu-page__logo-line"></div>
-                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
-                </div>
-                
-            </div>
-            <div class="menu-page__category__items">
-                <product-card class="menu-page__category-item" 
-                    data-title="Volcano Delight"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$10"
-                    data-product-id="5"
-                ></product-card>
-
-                <product-card class="menu-page__category-item" 
-                    data-title="Rainbow Fusion"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$10"
-                    data-product-id="6"
-                ></product-card>
-
-                <product-card class="menu-page__category-item" 
-                    data-title="Dragon Elegance"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$10"
-                    data-product-id="7"
-                ></product-card>
-
-                <product-card class="menu-page__category-item" 
-                    data-title="Sunset Serenity"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$10"
-                    data-product-id="8"
-                ></product-card>
-
-                
-            </div>
-        </div>
-
-        <div class="menu-page__category-section">
-            <div class="menu-page__category-title">
-                <div class="menu-page__category-logo">
-                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
-                    <div class="menu-page__logo-line"></div>
-                </div>
-                
-                <h1 class="menu-page__category-title-content">Special Rolls</h1>
-
-                <div class="menu-page__category-logo">
-                    <div class="menu-page__logo-line"></div>
-                    <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
-                </div>
-                
-            </div>
-            <div class="menu-page__category__items">
-                <product-card class="menu-page__category-item" 
-                    data-title="Spicy Tuna Maki"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$10"
-                    data-product-id="9"
-                ></product-card>
-
-                <product-card class="menu-page__category-item" 
-                    data-title="Mystic Garden"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$10"
-                    data-product-id="10"
-                ></product-card>
-
-                <product-card class="menu-page__category-item" 
-                    data-title="Ocean Breeze"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$10"
-                    data-product-id="11"
-                ></product-card>
-
-                <product-card class="menu-page__category-item" 
-                    data-title="Tokio Blossom"
-                    data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-                    data-src="/assets/img/product1.png"
-                    data-price="$10"
-                    data-product-id="12"
-                ></product-card>
-            </div>
-        </div>
         
     </div>
 </section>
+
+<template id="menu-page__category-section-id">
+    <div class="menu-page__category-section">
+        <div class="menu-page__category-title">
+            <div class="menu-page__category-logo">
+                <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
+                <div class="menu-page__logo-line"></div>
+            </div>
+            
+            <h1 class="menu-page__category-title-content"></h1>
+
+            <div class="menu-page__category-logo">
+                <div class="menu-page__logo-line"></div>
+                <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
+            </div>
+            
+        </div>
+
+        <div class="menu-page__category__items">
+            
+        </div>
+    </div>
+</template>
