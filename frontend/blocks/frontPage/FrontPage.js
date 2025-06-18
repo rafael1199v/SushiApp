@@ -7,7 +7,11 @@ class FrontPage extends BaseHTMLElement {
         this.attachShadow({ mode: 'open' });
     }
 
-    async connectedCallback() {
+    connectedCallback() {
+       this.init();
+    }
+
+    async init() {
         await this.loadHTML('/blocks/frontPage/frontPage.template');
     }
 }

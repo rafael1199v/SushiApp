@@ -7,6 +7,10 @@ import router from "./services/Router.js";
 import Buttton from "./blocks/button/Button.js"
 import ProductCard from "./blocks/productCard/ProductCard.js";
 import AboutPage from "./blocks/aboutPage/AboutPage.js";
+import { CartCommand, CartCommandExecutor } from "./services/CartCommand.js";
+import Command from "./services/Command.js";
+import CartPage from "./blocks/cartPage/CartPage.js";
+import FormButton from "./blocks/formButton/FormButton.js";
 
 
 globalThis.app = {};
@@ -31,6 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const addButtonLayout = document.querySelector(".layout-page__add-button");
 
     addButtonLayout.addEventListener("click", () => {
-        alert(`Añadido al carrito el producto con Id = ${addButtonLayout.dataset.productId}`);
-    })
+        //alert(`Añadido al carrito el producto con Id = ${addButtonLayout.dataset.productId}`);
+        const command = new Command(CartCommand.ADD, {productId: addButtonLayout.dataset.productId});
+        CartCommandExecutor.execute(command);
+    });
+
+    const cartIcon = document.querySelector(".layout-page__account-icon--cart");
+
+    cartIcon.addEventListener("click", () => {
+        app.router.go('/cart');
+    });
+
+
+
 })

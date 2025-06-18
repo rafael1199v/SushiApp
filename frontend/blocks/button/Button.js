@@ -6,7 +6,11 @@ class Button extends BaseHTMLElement {
         super();
     }
 
-    async connectedCallback() {
+    connectedCallback() {
+        this.init();
+    }
+
+    async init() {
         await this.loadHTML("/blocks/button/button.template");
         
         const button = this.querySelector(".button");

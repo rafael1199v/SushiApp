@@ -7,10 +7,13 @@ class ModalMenu extends BaseHTMLElement {
         this.attachShadow({ mode: 'open' });
     }
 
-    async connectedCallback() {
+    async init() {
         await this.loadHTML("/blocks/modalMenu/modalMenu.template");
-        
         this.applyRoutes();
+    }
+
+    connectedCallback() {
+        this.init();    
     }
 
 

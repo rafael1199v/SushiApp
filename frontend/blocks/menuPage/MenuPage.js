@@ -9,12 +9,16 @@ class MenuPage extends BaseHTMLElement {
         this.attachShadow({ mode: 'open' });
     }
 
+    connectedCallback() {
+        this.init();    
+    }
 
-    async connectedCallback() {
+    async init() {
         await this.loadHTML("/blocks/menuPage/menuPage.template");
         const productsByCategory = await this.getProducts();
         this.renderProducts(productsByCategory);
-    }
+        this.applyButtonListeners();
+    }   
 
     async getProducts() {
         const response = await fetch('/data/products.json');
@@ -32,6 +36,7 @@ class MenuPage extends BaseHTMLElement {
         const template = this.shadowRoot.getElementById('menu-page__category-section-id');
         const fragment = new DocumentFragment();
         const content = this.shadowRoot.querySelector(".menu-page__content");
+        content.innerHTML = "";
 
         for(let category in categoryProducts) {
 
@@ -68,6 +73,36 @@ class MenuPage extends BaseHTMLElement {
     }
 
 
+
+    applyButtonListeners() {
+        const buttons = this.shadowRoot.querySelector(".menu-page__navbar");
+        const allButton = this.shadowRoot.getElementById('all-button');
+        allButton.querySelector('button').focus();
+
+        buttons.addEventListener("click", (event) => {
+
+            if(!event.target.parentElement.matches('button-custom'))
+                return;
+
+            const categoryId = event.target.parentElement.dataset.categoryId;
+            const filteredCategoryProducts = ProductList.instance.groupByCategories();
+
+            if(categoryId == CATEGORY.ALL){
+                this.renderProducts(filteredCategoryProducts);
+            }
+            else {
+
+                const filteredObject = {
+                    [categoryId]: filteredCategoryProducts[categoryId]
+                };
+
+                this.renderProducts(filteredObject);
+            }
+           
+        });
+    }
+
+
     
     
 }
@@ -75,58 +110,3 @@ class MenuPage extends BaseHTMLElement {
 
 customElements.define("menu-page", MenuPage);
 export default MenuPage;
-
-/*
-<div class="menu-page__category-section">
-    <div class="menu-page__category-title">
-        <div class="menu-page__category-logo">
-            <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
-            <div class="menu-page__logo-line"></div>
-        </div>
-        
-        <h1 class="menu-page__category-title-content">Uramaki</h1>
-
-        <div class="menu-page__category-logo">
-            <div class="menu-page__logo-line"></div>
-            <img src="/assets/img/diamondIcon.svg" class="menu-page__logo-diamond"/>
-        </div>
-        
-    </div>
-    <div class="menu-page__category__items">
-        <product-card class="menu-page__category-item" 
-            data-title="Volcano Delight"
-            data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-            data-src="/assets/img/product1.png"
-            data-price="$10"
-            data-product-id="5"
-        ></product-card>
-
-        <product-card class="menu-page__category-item" 
-            data-title="Rainbow Fusion"
-            data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-            data-src="/assets/img/product1.png"
-            data-price="$10"
-            data-product-id="6"
-        ></product-card>
-
-        <product-card class="menu-page__category-item" 
-            data-title="Dragon Elegance"
-            data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-            data-src="/assets/img/product1.png"
-            data-price="$10"
-            data-product-id="7"
-        ></product-card>
-
-        <product-card class="menu-page__category-item" 
-            data-title="Sunset Serenity"
-            data-description="Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado, delivering a satisfying contrast of textures."
-            data-src="/assets/img/product1.png"
-            data-price="$10"
-            data-product-id="8"
-        ></product-card>
-
-        
-    </div>
-</div>
-
-*/

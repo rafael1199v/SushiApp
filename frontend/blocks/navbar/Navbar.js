@@ -7,7 +7,7 @@ class Navbar extends BaseHTMLElement {
         this.attachShadow({ mode: 'open' });
     }
 
-    async connectedCallback() {
+    async init() {
         await this.loadHTML("/blocks/navbar/navbar.template");
         const modalMenu = this.shadowRoot.querySelector("modal-menu");
         const openButton = this.shadowRoot.querySelector(".navbar__menu-toggle");
@@ -25,6 +25,10 @@ class Navbar extends BaseHTMLElement {
         })
 
         this.applyRoutes();
+    }
+
+    connectedCallback() {
+        this.init();
     }
 
 

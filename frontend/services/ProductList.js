@@ -24,6 +24,11 @@ class ProductList {
         this.#products = newProducts;
     }
 
+    filterById(productIds) {
+        const ids = new Set(productIds.map(id => Number(id)));
+        return this.#products.filter(product => ids.has(product.id));
+    }
+
 
     groupByCategories() {
         const result = {};
@@ -36,7 +41,6 @@ class ProductList {
 
             result[categoryId].push(product);
         }
-
 
         return result;
     }

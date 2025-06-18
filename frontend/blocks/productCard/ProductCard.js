@@ -1,6 +1,7 @@
 import BaseHTMLElement from "../base/BaseHTMLElement.js";
 import { LAYOUT_COMMAND, LayoutCommandExecutor } from "../../services/LayoutCommand.js";
 import Command from "../../services/Command.js";
+import { CartCommand, CartCommandExecutor } from "../../services/CartCommand.js";
 
 class ProductCard extends BaseHTMLElement {
 
@@ -8,22 +9,34 @@ class ProductCard extends BaseHTMLElement {
         super();
     }
 
-    async connectedCallback() {
+    async init() {
         await this.loadHTML("/blocks/productCard/productCard.template");
 
         const title = this.dataset.title;
         const description = this.dataset.description;
         const src = this.dataset.src;
         const price = this.dataset.price;
-        const productId = this.dataset.productId;
-
+    
         const titleElement = this.querySelector(".product-card__title");
         const descriptionElement = this.querySelector(".product-card__description");
         const imageElement = this.querySelector(".product-card__img");
         const priceElement = this.querySelector(".product-card__price");
 
+        titleElement.textContent = title;
+        descriptionElement.textContent = description;
+        imageElement.src = src;
+        priceElement.textContent = price;
+
+        this.applyListeners();
+    }
+
+
+    applyListeners() {
+        const productId = this.dataset.productId;
+        const title = this.dataset.title;
+        const src = this.dataset.src;
         const addButton = this.querySelector(".product-card__add-button");
-        
+                
         addButton.addEventListener("click", () => {
             this.dispatchEvent(new CustomEvent("add-item", {
                 detail: {
@@ -33,7 +46,8 @@ class ProductCard extends BaseHTMLElement {
                 composed: true
             }));
 
-            alert(`Agregado al carrito y el id es ${productId}`);
+            const command = new Command(CartCommand.ADD, { productId: productId});
+            CartCommandExecutor.execute(command);
         });
 
         this.addEventListener("click", (event) => {
@@ -56,11 +70,10 @@ class ProductCard extends BaseHTMLElement {
             
             LayoutCommandExecutor.multipleExecute(commands);
         });
+    }
 
-        titleElement.textContent = title;
-        descriptionElement.textContent = description;
-        imageElement.src = src;
-        priceElement.textContent = price;
+    connectedCallback() {
+        this.init();    
     }
 
 }

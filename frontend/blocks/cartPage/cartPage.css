@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+:host {
+    width: 100%;
+    display: block;
+} */
+
+.cart-page {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 6rem 6rem 5rem 6rem;
+    align-items: center;
+    border: 1px solid rgba(239, 231, 210, 0.15);
+    border-radius: 1rem;
+}
+
+
+.cart-page__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.cart-page__title {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+
+.cart-page__title-content {
+    font-family: "Forum", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: rgba(239, 231, 210, 1);
+    text-transform: uppercase;
+}
+
+
+.cart-page__category-logo {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    align-items: center;
+}
+
+.cart-page__logo-line {
+    width: 50px;
+    height: 1px;
+    background-color: rgba(239, 231, 210, 0.15);
+}
+
+.cart-page__form-button {
+    width: 100%
+}
+
+
+.cart-page__information {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

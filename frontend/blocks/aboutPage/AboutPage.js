@@ -6,7 +6,14 @@ class AboutPage extends BaseHTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-        this.loadHTML("/blocks/aboutPage/aboutPage.template");
+    }
+
+    connectedCallback() {
+        this.init();
+    }
+
+    async init() {
+        await this.loadHTML("/blocks/aboutPage/aboutPage.template");
     }
 }
 

@@ -46,5 +46,21 @@ export const IMAGE_PAGES = {
         title: 'Blog',
         socials: false,
         footer: true
+    },
+    LOGIN_PAGE: {
+        url: '/assets/img/login-page.png',
+        width: '928px',
+        height: '94vh',
+        title: 'Login',
+        socials: false,
+        footer: true
+    },
+    CART_PAGE: {
+        url: '/assets/img/menu-page.png',
+        width: '928px',
+        height: '94vh',
+        title: 'Cart',
+        socials: false,
+        footer: true
     }
 };

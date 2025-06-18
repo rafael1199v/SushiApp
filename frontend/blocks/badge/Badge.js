@@ -6,7 +6,11 @@ class BadgeIcon extends BaseHTMLElement {
         super();
     }
 
-    async connectedCallback() {
+    connectedCallback() {
+       this.init();
+    }
+
+    async init() {
         await this.loadHTML("/blocks/badge/badge.template");
 
         const imgElement = this.querySelector(".badge__icon");

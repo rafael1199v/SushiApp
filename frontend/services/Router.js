@@ -88,8 +88,24 @@ class Router {
                 break;
             case "/login":
                 contentElement = document.createElement("h1");
-                contentElement.textContent = "Login";
+                pageConfig.url = IMAGE_PAGES.LOGIN_PAGE.url;
+                pageConfig.title = IMAGE_PAGES.LOGIN_PAGE.title;
+                pageConfig.width = IMAGE_PAGES.LOGIN_PAGE.width;
+                pageConfig.height = IMAGE_PAGES.LOGIN_PAGE.height;
+                pageConfig.socials = IMAGE_PAGES.LOGIN_PAGE.socials;
+                pageConfig.footer = IMAGE_PAGES.LOGIN_PAGE.footer;
                 break;
+
+            case "/cart":
+                contentElement = document.createElement("cart-page");
+                pageConfig.url = IMAGE_PAGES.CART_PAGE.url;
+                pageConfig.title = IMAGE_PAGES.CART_PAGE.title;
+                pageConfig.width = IMAGE_PAGES.CART_PAGE.width;
+                pageConfig.height = IMAGE_PAGES.CART_PAGE.height;
+                pageConfig.socials = IMAGE_PAGES.CART_PAGE.socials;
+                pageConfig.footer = IMAGE_PAGES.CART_PAGE.footer;
+                break;
+
         }
 
         if(!contentElement)

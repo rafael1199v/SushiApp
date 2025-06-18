@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../../frontend')));
 
-app.get("/", (req, res) => {
+app.get(['/', '/menu', '/about', '/book', '/contact', '/blog', '/signup', '/login', '/cart'], (req, res) => {
   res.status(200);
   res.sendFile(path.join(__dirname, '../../frontend/index.html'));
 });
