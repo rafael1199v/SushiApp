@@ -11,6 +11,9 @@ import CartPage from "./blocks/cartPage/CartPage.js";
 import FormButton from "./blocks/formButton/FormButton.js";
 import LoginPage from "./blocks/loginPage/LoginPage.js"
 import RegistrationPage from "./blocks/registrationPage/RegistrationPage.js";
+import ReservationPage from "./blocks/reservationPage/ReservationPage.js";
+import BlogPage from "./blocks/blogPage/BlogPage.js";
+import BlogCard from "./blocks/blogCard/BlogCard.js";
 
 import layout from "./services/Layout.js";
 

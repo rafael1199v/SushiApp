@@ -55,7 +55,7 @@ class Router {
                 pageConfig.footer = IMAGE_PAGES.ABOUT_PAGE.footer;
                 break;
             case "/book":
-                contentElement = document.createElement("h1");
+                contentElement = document.createElement("reservation-page");
                 pageConfig.url = IMAGE_PAGES.BOOK_TABLE_PAGE.url;
                 pageConfig.title = IMAGE_PAGES.BOOK_TABLE_PAGE.title;
                 pageConfig.width = IMAGE_PAGES.BOOK_TABLE_PAGE.width;
@@ -74,7 +74,7 @@ class Router {
                 pageConfig.footer = IMAGE_PAGES.CONTACT_PAGE.footer;
                 break;
             case "/blog":
-                contentElement = document.createElement("h1");
+                contentElement = document.createElement("blog-page");
                 pageConfig.url = IMAGE_PAGES.BLOG_PAGE.url;
                 pageConfig.title = IMAGE_PAGES.BLOG_PAGE.title;
                 pageConfig.width = IMAGE_PAGES.BLOG_PAGE.width;
