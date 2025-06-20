@@ -30,3 +30,5 @@ class BlogList {
         this.#favoriteBlogs = blogs;
     }
 }
+
+export default BlogList;

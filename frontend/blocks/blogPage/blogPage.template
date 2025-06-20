@@ -31,7 +31,6 @@
     </nav>
 
     <div class="blog-page__blogs">
-        <blog-card></blog-card>
-        <blog-card></blog-card>
+        
     </div>
 </section>
