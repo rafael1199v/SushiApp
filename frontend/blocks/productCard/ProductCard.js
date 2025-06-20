@@ -1,7 +1,7 @@
 import BaseHTMLElement from "../base/BaseHTMLElement.js";
-import { LAYOUT_COMMAND, LayoutCommandExecutor } from "../../services/LayoutCommand.js";
-import Command from "../../services/Command.js";
-import { CartCommand, CartCommandExecutor } from "../../services/CartCommand.js";
+import Command from "../../services/Command/Command.js"
+import { CartCommand, CartCommandExecutor } from "../../services/Command/CartCommand.js";
+import { LAYOUT_COMMAND, LayoutCommandExecutor } from "../../services/Command/LayoutCommand.js"
 
 class ProductCard extends BaseHTMLElement {
 

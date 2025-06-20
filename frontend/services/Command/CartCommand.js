@@ -1,4 +1,4 @@
-import cart from "./Cart.js";
+import cart from "../Cart.js"
 
 export const CartCommand = {
     ADD: 'add',

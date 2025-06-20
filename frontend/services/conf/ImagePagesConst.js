@@ -62,5 +62,13 @@ export const IMAGE_PAGES = {
         title: 'Cart',
         socials: false,
         footer: true
+    },
+    SIGN_UP_PAGE: {
+        url: '/assets/img/login-page.png',
+        width: '928px',
+        height: '94vh',
+        title: 'Registration',
+        socials: false,
+        footer: true
     }
 };

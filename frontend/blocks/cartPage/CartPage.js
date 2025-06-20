@@ -1,10 +1,9 @@
 import BaseHTMLElement from '../base/BaseHTMLElement.js'
 import cart from '../../services/Cart.js'
 import ProductList from '../../services/ProductList.js'
-import Command from '../../services/Command.js';
-import { CartCommand, CartCommandExecutor } from '../../services/CartCommand.js';
 
-let a = 0;
+import Command from '../../services/Command/Command.js';
+import { CartCommand, CartCommandExecutor } from '../../services/Command/CartCommand.js';
 
 class CartPage extends BaseHTMLElement {
 

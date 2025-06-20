@@ -1,6 +1,6 @@
-import Command from "./Command.js";
+import Command from "./Command/Command.js";
 import { IMAGE_PAGES } from "./conf/ImagePagesConst.js";
-import { LAYOUT_COMMAND, LayoutCommandExecutor } from "./LayoutCommand.js";
+import { LAYOUT_COMMAND, LayoutCommandExecutor } from "./Command/LayoutCommand.js";
 
 class Router {
 
@@ -83,11 +83,18 @@ class Router {
                 pageConfig.footer = IMAGE_PAGES.BLOG_PAGE.footer;
                 break;
             case "/signup":
-                contentElement = document.createElement("h1");
-                contentElement.textContent = "Registration";
+                contentElement = document.createElement("registration-page");
+                pageConfig.url = IMAGE_PAGES.SIGN_UP_PAGE.url;
+                pageConfig.title = IMAGE_PAGES.SIGN_UP_PAGE.title;
+                pageConfig.width = IMAGE_PAGES.SIGN_UP_PAGE.width;
+                pageConfig.height = IMAGE_PAGES.SIGN_UP_PAGE.height;
+                pageConfig.socials = IMAGE_PAGES.SIGN_UP_PAGE.socials;
+                pageConfig.footer = IMAGE_PAGES.SIGN_UP_PAGE.footer;    
+
+
                 break;
             case "/login":
-                contentElement = document.createElement("h1");
+                contentElement = document.createElement("login-page");
                 pageConfig.url = IMAGE_PAGES.LOGIN_PAGE.url;
                 pageConfig.title = IMAGE_PAGES.LOGIN_PAGE.title;
                 pageConfig.width = IMAGE_PAGES.LOGIN_PAGE.width;

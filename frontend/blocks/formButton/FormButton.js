@@ -15,6 +15,24 @@ class FormButton extends BaseHTMLElement {
 
         const button = this.querySelector(".form-button");
         button.textContent = this.dataset.title;
+        button.disabled = this.dataset.state == "disabled";
+
+    }
+
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        const button = this.querySelector(".form-button");
+
+        if(!button)
+            return;
+
+        if(name == "data-state")
+            button.disabled = newValue === "disabled";
+        
+    }
+
+    static get observedAttributes() {
+        return ['data-state'];
     }
 }
 

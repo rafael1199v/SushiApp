@@ -18,4 +18,5 @@
 
 .form-button:disabled {
     background-color: rgba(239, 231, 210, 0.4);
+    cursor:default;
 }
