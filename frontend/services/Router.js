@@ -65,7 +65,7 @@ class Router {
 
                 break;
             case "/contact":
-                contentElement = document.createElement("h1");
+                contentElement = document.createElement("contact-page");
                 pageConfig.url = IMAGE_PAGES.CONTACT_PAGE.url;
                 pageConfig.title = IMAGE_PAGES.CONTACT_PAGE.title;
                 pageConfig.width = IMAGE_PAGES.CONTACT_PAGE.width;
@@ -73,6 +73,7 @@ class Router {
                 pageConfig.socials = IMAGE_PAGES.CONTACT_PAGE.socials;
                 pageConfig.footer = IMAGE_PAGES.CONTACT_PAGE.footer;
                 break;
+                
             case "/blog":
                 contentElement = document.createElement("blog-page");
                 pageConfig.url = IMAGE_PAGES.BLOG_PAGE.url;

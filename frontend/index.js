@@ -14,6 +14,7 @@ import RegistrationPage from "./blocks/registrationPage/RegistrationPage.js";
 import ReservationPage from "./blocks/reservationPage/ReservationPage.js";
 import BlogPage from "./blocks/blogPage/BlogPage.js";
 import BlogCard from "./blocks/blogCard/BlogCard.js";
+import ContactPage from "./blocks/contactPage/ContactPage.js";
 
 import layout from "./services/Layout.js";
 
