@@ -1,11 +1,12 @@
 import Command from "./Command/Command.js";
 import { CartCommand, CartCommandExecutor } from "./Command/CartCommand.js";
+import authService from "./AuthService.js";
 
 
 class Layout {
 
     init() {
-        if(!app.isAuthenticated) {
+        if(!authService.isLoggedIn()) {
             const personIcon = document.querySelector(".layout-page__account-icon");
             personIcon.style.display = 'none';
         }

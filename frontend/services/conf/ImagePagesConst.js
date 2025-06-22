@@ -70,5 +70,13 @@ export const IMAGE_PAGES = {
         title: 'Registration',
         socials: false,
         footer: true
+    },
+    BLOG_DETAIL_PAGE: {
+        url: '/assets/img/blog1.png',
+        width: '928px',
+        height: '94vh',
+        title: '',
+        socials: false,
+        footer: true
     }
 };

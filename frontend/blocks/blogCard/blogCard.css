@@ -11,6 +11,7 @@
     max-height: 210px;
     border-radius: 16px;
     overflow: hidden;
+    position: relative;
 }
 
 .blog-card__image {
@@ -80,4 +81,18 @@
     font-size: 14px;
     line-height: 180%;
     color: rgb(225, 217, 198, 1);
+}
+
+
+.blog-card__like-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6875rem;
+    border-radius: 12px;
+    background-color: rgba(10, 11, 10, 1);
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
 }

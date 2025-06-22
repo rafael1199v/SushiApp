@@ -1,8 +1,8 @@
 import BaseHTMLElement from '../base/BaseHTMLElement.js'
 import blogAPI from '../../services/Api/BlogApi.js';
 import BlogList from '../../services/BlogList.js';
-import Command from '../../services/Command/Command.js';
-import { LAYOUT_COMMAND, LayoutCommandExecutor } from '../../services/Command/LayoutCommand.js';
+import authService from '../../services/AuthService.js';
+import { IMAGE_PAGES } from '../../services/conf/ImagePagesConst.js';
 
 class BlogPage extends BaseHTMLElement {
 
@@ -19,13 +19,29 @@ class BlogPage extends BaseHTMLElement {
     async init() {
         await this.loadHTML("/blocks/blogPage/blogPage.template");
         await this.getBlogs();
+        
+        
+
+        if(authService.isLoggedIn()) {
+            this.addNav();
+            this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, true);
+        }
+        else {
+            const nav = this.shadowRoot.querySelector(".blog-page__nav");
+            nav.style.display = "none";
+            this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, false);
+        }
+
+        
+        
     }
 
     async getBlogs() {
         BlogList.instance.setBlogs(await blogAPI.getAllBlogs());
+    }
 
-         const blogContainer = this.shadowRoot.querySelector(".blog-page__blogs");
-        const blogs = BlogList.instance.blogs;
+    renderBlogs(blogs, addEventListenerCard, clickeable, showStar) {
+        const blogContainer = this.shadowRoot.querySelector(".blog-page__blogs");
         const fragment = new DocumentFragment();
 
         blogContainer.innerHTML = "";
@@ -40,33 +56,52 @@ class BlogPage extends BaseHTMLElement {
             card.dataset.date = blog.date;
             card.dataset.img = blog.img;
             card.dataset.favorite = blog.favorite;
+            card.dataset.id = blog.id;
 
-            card.classList.add("blog-page__card--clickeable");
+            if(clickeable)
+                card.classList.add("blog-page__card--clickeable");
 
-            this.normalCardAddEventListener(card);
+            if(showStar)
+                card.dataset.showStar = "true";
+
+            addEventListenerCard(card);
 
             fragment.appendChild(card);
         }
-
         blogContainer.appendChild(fragment);
     }
 
-    async getFavoriteBlogs() {
+    addNav() {
+        const news = this.shadowRoot.getElementById("news");
+        const favorites = this.shadowRoot.getElementById("favorites");
+        const articles = this.shadowRoot.getElementById("articles");
 
+        news.focus();
+
+        news.addEventListener("click", () => {
+            this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, true);
+        });
+
+        favorites.addEventListener("click", () => {
+            this.renderBlogs(BlogList.instance.getFavorites(), (card) => {}, true, true);
+        });
+
+        articles.addEventListener("click", () => {
+            this.renderBlogs(BlogList.instance.getMyArticles(), () => {}, true, false);
+        });
     }
-
-    async getOwnBlogs() {
-
-    }
-
-
+   
     normalCardAddEventListener(card) {
 
-        card.addEventListener("click", () => {
-            const command = new Command(LAYOUT_COMMAND.CHANGE_BACKGROUND, { url: card.dataset.img, width: '963px' });
-            const commandTitle = new Command(LAYOUT_COMMAND.CHANGE_TITLE, { title: "" });
-            
-            LayoutCommandExecutor.multipleExecute([command, commandTitle]);
+        card.addEventListener("click", (event) => {
+
+            if(event.target.closest(".blog-card__like-button"))
+                return;
+
+            IMAGE_PAGES.BLOG_DETAIL_PAGE.url = card.dataset.img;
+            IMAGE_PAGES.BLOG_DETAIL_PAGE.width = '963px';
+        
+            globalThis.app.router.go(`/blog/${card.dataset.id}`);
         })
     }
 

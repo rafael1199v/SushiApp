@@ -15,13 +15,15 @@ import ReservationPage from "./blocks/reservationPage/ReservationPage.js";
 import BlogPage from "./blocks/blogPage/BlogPage.js";
 import BlogCard from "./blocks/blogCard/BlogCard.js";
 import ContactPage from "./blocks/contactPage/ContactPage.js";
+import BlogDetailPage from "./blocks/blogDetailPage/BlogDetailPage.js";
 
 import layout from "./services/Layout.js";
 
 
 globalThis.app = {};
 
-app.isAuthenticated = false;
+app.isAuthenticated = true;
+app.userId = 1;
 app.router = router;
 
 document.addEventListener("DOMContentLoaded", () => {

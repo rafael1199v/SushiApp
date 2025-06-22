@@ -1,11 +1,8 @@
+import authService from "./AuthService.js";
+
 class BlogList {
 
     #blogs = [];
-    #favoriteBlogs = [];
-
-    get favorites() {
-        return this.#favoriteBlogs;
-    }
 
     get blogs() {
         return this.#blogs;
@@ -25,10 +22,42 @@ class BlogList {
     setBlogs(blogs) {
         this.#blogs = blogs;
     }
-    
-    setFavoriteBlogs(blogs) {
-        this.#favoriteBlogs = blogs;
+
+    getFavorites() {
+        const favoriteBlogs = this.#blogs.filter(blog => blog.favorite == true);
+        return favoriteBlogs;
     }
+
+    getMyArticles() {
+        const myArticles = this.#blogs.filter(blog => blog.author.id == authService.getUserId());
+        return myArticles;
+    }
+
+
+    addFavorite(blogId) {
+        const newFavoriteBlog = this.#blogs.find(blog => blog.id == blogId);
+        newFavoriteBlog.favorite = true;
+    }
+
+    removeFavorite(blogId) {
+        const newFavoriteBlog = this.#blogs.find(blog => blog.id == blogId);
+        newFavoriteBlog.favorite = false;
+    }
+
+    getById(blogId) {
+        return this.#blogs.find(blog => blog.id == blogId);
+    }
+
+    saveBlog(blogId, newTitle, newContent) {
+        const blog = this.getById(blogId);
+
+        blog.title = newTitle;
+        blog.content = newContent;
+
+        console.log(this.#blogs);
+    }
+
+    
 }
 
 export default BlogList;

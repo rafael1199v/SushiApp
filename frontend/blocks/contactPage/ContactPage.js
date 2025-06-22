@@ -15,6 +15,10 @@ class ContactPage extends BaseHTMLElement {
     async init() {
         await this.loadHTML("/blocks/contactPage/contactPage.template");
 
+        const route = this.shadowRoot.querySelector("badge-icon");
+        route.addEventListener("click", () => {
+            window.open("https://www.google.com/maps");
+        })
     }
 }
 

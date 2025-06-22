@@ -17,15 +17,15 @@
     </div>
 
     <nav class="blog-page__nav">
-        <a class="blog-page__nav-item" tabindex="1">
+        <a class="blog-page__nav-item" tabindex="1" id="news">
             All news
         </a>
 
-        <a class="blog-page__nav-item" tabindex="2">
+        <a class="blog-page__nav-item" tabindex="2" id="favorites">
             Favorites
         </a>
 
-        <a class="blog-page__nav-item" tabindex="3">
+        <a class="blog-page__nav-item" tabindex="3" id="articles">
             My articles
         </a>
     </nav>

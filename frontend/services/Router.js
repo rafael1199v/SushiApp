@@ -90,9 +90,7 @@ class Router {
                 pageConfig.width = IMAGE_PAGES.SIGN_UP_PAGE.width;
                 pageConfig.height = IMAGE_PAGES.SIGN_UP_PAGE.height;
                 pageConfig.socials = IMAGE_PAGES.SIGN_UP_PAGE.socials;
-                pageConfig.footer = IMAGE_PAGES.SIGN_UP_PAGE.footer;    
-
-
+                pageConfig.footer = IMAGE_PAGES.SIGN_UP_PAGE.footer; 
                 break;
             case "/login":
                 contentElement = document.createElement("login-page");
@@ -112,6 +110,22 @@ class Router {
                 pageConfig.height = IMAGE_PAGES.CART_PAGE.height;
                 pageConfig.socials = IMAGE_PAGES.CART_PAGE.socials;
                 pageConfig.footer = IMAGE_PAGES.CART_PAGE.footer;
+                break;
+
+            default:
+                if(route.startsWith("/blog/")) {
+                    contentElement = document.createElement("blog-detail-page");
+                    const paramId = route.substring(route.lastIndexOf("/") + 1);
+                    contentElement.dataset.blogId = paramId;
+
+                    pageConfig.url = IMAGE_PAGES.BLOG_DETAIL_PAGE.url;
+                    pageConfig.title = IMAGE_PAGES.BLOG_DETAIL_PAGE.title;
+                    pageConfig.width = IMAGE_PAGES.BLOG_DETAIL_PAGE.width;
+                    pageConfig.height = IMAGE_PAGES.BLOG_DETAIL_PAGE.height;
+                    pageConfig.socials = IMAGE_PAGES.BLOG_DETAIL_PAGE.socials;
+                    pageConfig.footer = IMAGE_PAGES.BLOG_DETAIL_PAGE.footer;
+                }
+                
                 break;
 
         }

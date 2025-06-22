@@ -206,6 +206,10 @@
     }
 }
 
+/* .layout-page__content-main {
+    flex: 1;
+} */
+
 
 .layout-page__content::-webkit-scrollbar {
     width: 5px;

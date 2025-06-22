@@ -1,7 +1,7 @@
 import BaseHTMLElement from '../base/BaseHTMLElement.js'
 import cart from '../../services/Cart.js'
 import ProductList from '../../services/ProductList.js'
-
+import authService from '../../services/AuthService.js';
 import Command from '../../services/Command/Command.js';
 import { CartCommand, CartCommandExecutor } from '../../services/Command/CartCommand.js';
 
@@ -60,7 +60,7 @@ class CartPage extends BaseHTMLElement {
 
         formButton.addEventListener('click', () => {
 
-            if(!globalThis.app.isAuthenticated)
+            if(!authService.isLoggedIn())
                 globalThis.app.router.go('/login');
             else if(quantity <= 0)
                 console.log("No tienes productos añadidos");
