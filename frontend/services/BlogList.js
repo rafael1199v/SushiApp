@@ -53,8 +53,6 @@ class BlogList {
 
         blog.title = newTitle;
         blog.content = newContent;
-
-        console.log(this.#blogs);
     }
 
     

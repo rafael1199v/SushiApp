@@ -18,6 +18,7 @@ export const BlogCommandExecutor = {
             case BLOG_COMMAND.REMOVE_FAVORITE:
                 const blogNotFavoriteId = command.args.blogId;
                 BlogList.instance.removeFavorite(blogNotFavoriteId);
+                break;
 
             case BLOG_COMMAND.SAVE_BLOG:
                 const blogSaveId = command.args.blogId;

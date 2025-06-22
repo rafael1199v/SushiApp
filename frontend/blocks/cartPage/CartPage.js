@@ -32,6 +32,7 @@ class CartPage extends BaseHTMLElement {
         const products = ProductList.instance.filterById(Object.keys(cart.productMap));
         const fragment = new DocumentFragment();
         const information = this.shadowRoot.querySelector(".cart-page__information");
+        let totalNumber = 0;
 
         information.innerHTML = "";
 
@@ -39,18 +40,31 @@ class CartPage extends BaseHTMLElement {
 
             const priceNumber = Number(product.price);
             const quantity = Number(cart.productMap[product.id]);
-
             const productCard = document.createElement("product-card");
+
+            totalNumber += (priceNumber * quantity);
+
             productCard.dataset.title = product.name;
             productCard.dataset.description = product.description;
             productCard.dataset.src = product.image;
             productCard.dataset.price = `$${priceNumber} X ${quantity} = $${priceNumber * quantity}`;
             productCard.dataset.productId = product.id;
+            productCard.dataset.vegetarian = product.vegetarian;
 
             fragment.appendChild(productCard);
         }
 
         information.appendChild(fragment);
+
+
+        if(products.length !== 0) {
+            const template = this.shadowRoot.getElementById("cart-page__total-template");
+            const element = template.content.cloneNode(true).firstElementChild;
+            const totalPriceElement = element.querySelector(".cart-page__total-price");
+            totalPriceElement.textContent = `$${totalNumber}`;
+
+            information.appendChild(element);
+        }
     }
 
 

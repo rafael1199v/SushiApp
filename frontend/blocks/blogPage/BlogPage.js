@@ -83,11 +83,11 @@ class BlogPage extends BaseHTMLElement {
         });
 
         favorites.addEventListener("click", () => {
-            this.renderBlogs(BlogList.instance.getFavorites(), (card) => {}, true, true);
+            this.renderBlogs(BlogList.instance.getFavorites(), this.normalCardAddEventListener, true, true);
         });
 
         articles.addEventListener("click", () => {
-            this.renderBlogs(BlogList.instance.getMyArticles(), () => {}, true, false);
+            this.renderBlogs(BlogList.instance.getMyArticles(), this.normalCardAddEventListener, true, false);
         });
     }
    

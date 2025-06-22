@@ -5,7 +5,7 @@
         "description": "A tantalizing blend of spicy tuna, cucumber, and avocado, harmoniously rolled in nori and seasoned rice.",
         "price": 5.00,
         "image": "/assets/img/product1.png",
-        "vegetarian": false,
+        "vegetarian": true,
         "ingredients": [
             "spicy tuna",
             "cucumber",
@@ -24,7 +24,7 @@
         "description": "A tantalizing blend of spicy tuna, cucumber, and avocado, harmoniously rolled in nori and seasoned rice.",
         "price": 5.00,
         "image": "/assets/img/product1.png",
-        "vegetarian": false,
+        "vegetarian": true,
         "ingredients": [
             "spicy tuna",
             "cucumber",
@@ -43,7 +43,7 @@
         "description": "A tantalizing blend of spicy tuna, cucumber, and avocado, harmoniously rolled in nori and seasoned rice.",
         "price": 5.00,
         "image": "/assets/img/product1.png",
-        "vegetarian": false,
+        "vegetarian": true,
         "ingredients": [
             "spicy tuna",
             "cucumber",

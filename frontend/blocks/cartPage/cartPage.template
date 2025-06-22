@@ -28,7 +28,7 @@
 
 
 <template id="cart-page__total-template">
-    <div class="cart-page__total-info">
+    <div class="cart-page__total-info-main">
         <div class="cart-page__total-skeleton">
 
         </div>

@@ -16,6 +16,7 @@ class MenuPage extends BaseHTMLElement {
     async init() {
         await this.loadHTML("/blocks/menuPage/menuPage.template");
         const productsByCategory = await this.getProducts();
+
         this.renderProducts(productsByCategory);
         this.applyButtonListeners();
     }   
@@ -59,8 +60,9 @@ class MenuPage extends BaseHTMLElement {
                 productElement.dataset.title = product.name;
                 productElement.dataset.description = product.description;
                 productElement.dataset.src = product.image;
-                productElement.dataset.price = product.price;
+                productElement.dataset.price = `$${product.price}`;
                 productElement.dataset.productId = product.id;
+                productElement.dataset.vegetarian = product.vegetarian;
 
                 items.appendChild(productElement);
             }

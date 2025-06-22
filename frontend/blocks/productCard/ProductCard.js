@@ -16,16 +16,17 @@ class ProductCard extends BaseHTMLElement {
         const description = this.dataset.description;
         const src = this.dataset.src;
         const price = this.dataset.price;
+        const vegetarian = this.dataset.vegetarian;
     
         const titleElement = this.querySelector(".product-card__title");
         const descriptionElement = this.querySelector(".product-card__description");
         const imageElement = this.querySelector(".product-card__img");
         const priceElement = this.querySelector(".product-card__price");
 
-        titleElement.textContent = title;
+        titleElement.innerHTML = `${title}${vegetarian == "true" ? '<img alt="leaf" src="/assets/img/leaf.svg"></img>' : ""}`;
         descriptionElement.textContent = description;
         imageElement.src = src;
-        priceElement.textContent = price;
+        priceElement.textContent = `${price}`;
 
         this.applyListeners();
     }
