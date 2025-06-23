@@ -1,17 +1,20 @@
-import express from "express";
-import morgan from "morgan";
-import cors from "cors";
-import { protect } from './modules/auth.js';
-import router from './router.js';
-import { createNewUser, signin } from './handlers/user.js';
-import { fileURLToPath } from "url";
-import path from "path";
 import { config } from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 config({ path: path.join(__dirname, '../.env')});
+
+import express from "express";
+import morgan from "morgan";
+import cors from "cors";
+
+import router from './router.js';
+import { createNewUser, signin } from './handlers/user.js';
+import { handleUserInput } from "./middlewares/handleUserInput.js";
+import loginValidators from "./validators/loginValidator.js";
+import signUpValidators from "./validators/signUpValidator.js";
 
 const app = express();
 
@@ -27,9 +30,9 @@ app.get(['/', '/menu', '/about', '/book', '/contact', '/blog', '/signup', '/logi
   res.sendFile(path.join(__dirname, '../../frontend/index.html'));
 });
 
-app.use("/api", protect, router);
+app.use("/api", router);
 
-app.post("/signup", createNewUser);
-app.post("/signin", signin);
+app.post("/signup", signUpValidators, handleUserInput, createNewUser);
+app.post("/signin", loginValidators, handleUserInput, signin);
 
 export default app;

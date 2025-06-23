@@ -46,7 +46,7 @@ class CartPage extends BaseHTMLElement {
 
             productCard.dataset.title = product.name;
             productCard.dataset.description = product.description;
-            productCard.dataset.src = product.image;
+            productCard.dataset.src = product.imageUrl;
             productCard.dataset.price = `$${priceNumber} X ${quantity} = $${priceNumber * quantity}`;
             productCard.dataset.productId = product.id;
             productCard.dataset.vegetarian = product.vegetarian;

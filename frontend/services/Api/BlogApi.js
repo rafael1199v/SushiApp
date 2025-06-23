@@ -1,3 +1,5 @@
+import { API_URL } from "../conf/BackendUrl.js";
+
 class BlogAPI {
 
     constructor(baseUrl) {

@@ -40,7 +40,7 @@
     font-family: "Forum", sans-serif;
     font-size: 140px;
     color: #EFE7D2;
-    max-width: 53rem;
+    max-width: 52rem;
     left: 60px;
     bottom: 52px;
     position: absolute;
@@ -63,6 +63,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .layout-page__account-icon--cart {

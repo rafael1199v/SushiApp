@@ -10,7 +10,13 @@ export const hashPassword = (password) => {
 };
 
 export const createJWT = (user) => {
-  const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET);
+  const token = jwt.sign({ 
+    id: user.id,
+    name: user.name,
+    email: user.email,  
+  }, 
+  process.env.JWT_SECRET);
+
   return token;
 };
 
@@ -32,6 +38,10 @@ export const protect = (req, res, next) => {
   }
 
   try {
+    console.log("BEARER", bearer);
+    console.log("TOKEN", token);
+    console.log("DEBAJO ES EL PAYLOAD");
+
     const payload = jwt.verify(token, process.env.JWT_SECRET);
     req.user = payload;
     console.log(payload);

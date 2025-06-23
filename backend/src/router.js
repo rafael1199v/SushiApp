@@ -1,14 +1,13 @@
 import { Router } from "express";
-import { body, validationResult } from "express-validator";
+import blogRouter from "./routers/blogRouter.js";
+import productRouter from "./routers/productRouter.js";
+import orderRouter from "./routers/orderRouter.js";
 
 const router = Router();
 
-router.get("/blog", () => {});
-router.post("/blog", () => {});
-
-router.get("/blog/:id", () => {});
-router.put("/blog/:id", () => {});
-router.delete("/blog/:id", () => {});
+router.use("/blog", blogRouter);
+router.use("/product", productRouter);
+router.use("/order", orderRouter);
 
 export default router;
 
