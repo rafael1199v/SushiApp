@@ -1,9 +1,10 @@
 import { Router } from "express";
 import { protect } from "../modules/auth.js";
+import { getBlogs } from "../handlers/blog.js";
 
 const blogRouter = Router();
 
-blogRouter.get("/", () => {});
+blogRouter.get("/", getBlogs);
 blogRouter.post("/", protect,() => {});
 
 blogRouter.get("/:id", protect, () => {});
