@@ -79,6 +79,7 @@ class CartPage extends BaseHTMLElement {
             else if(quantity <= 0)
                 console.log("No tienes productos añadidos");
             else {
+                
                 const command = new Command(CartCommand.PLACE_ORDER);
                 CartCommandExecutor.execute(command);
                 globalThis.app.router.go('/menu');
