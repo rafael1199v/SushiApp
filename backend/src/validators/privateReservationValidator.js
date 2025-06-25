@@ -17,8 +17,8 @@ const privateReservationValidator = [
     body("time")
         .notEmpty()
         .withMessage("La hora es requerida")
-        .isTime()
-        .withMessage("Formato de la hora invalido")
+        .matches(/^([01]\d|2[0-3]):([0-5]\d)(:[0-5]\d)?$/)
+        .withMessage("Formato de la hora invalido (HH:mm o HH:mm:ss)")
 ];
 
 
