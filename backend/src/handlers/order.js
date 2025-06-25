@@ -14,7 +14,7 @@ export const createOrder = async (req, res) => {
         });
     }
 
-    const order = await prisma.order.create({
+    await prisma.order.create({
         data: {
             total: total,
             createdAt: new Date(),
@@ -27,8 +27,6 @@ export const createOrder = async (req, res) => {
             orderDetails: true
         }
     });
-
-    console.log(order);
 
     res.sendStatus(201);
 }

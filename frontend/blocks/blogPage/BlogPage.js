@@ -32,8 +32,6 @@ class BlogPage extends BaseHTMLElement {
             this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, false);
         }
 
-        
-        
     }
 
     async getBlogs() {
@@ -48,13 +46,13 @@ class BlogPage extends BaseHTMLElement {
 
         for(let blog of blogs){
             const card = document.createElement("blog-card");
-            
+
             card.dataset.title = blog.title;
             card.dataset.description = blog.description;
-            card.dataset.authorId = blog.author.id;
-            card.dataset.authorName = `Author: ${blog.author.name}`;
+            card.dataset.authorId = blog.authorId;
+            card.dataset.authorName = `Author: ${blog.users.name}`;
             card.dataset.date = blog.date;
-            card.dataset.img = blog.img;
+            card.dataset.img = blog.imageUrl;
             card.dataset.favorite = blog.favorite;
             card.dataset.id = blog.id;
 
@@ -68,6 +66,7 @@ class BlogPage extends BaseHTMLElement {
 
             fragment.appendChild(card);
         }
+
         blogContainer.appendChild(fragment);
     }
 

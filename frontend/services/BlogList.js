@@ -29,7 +29,7 @@ class BlogList {
     }
 
     getMyArticles() {
-        const myArticles = this.#blogs.filter(blog => blog.author.id == authService.getUserId());
+        const myArticles = this.#blogs.filter(blog => blog.authorId == authService.getUserId());
         return myArticles;
     }
 
