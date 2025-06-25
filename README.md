@@ -56,7 +56,13 @@ El frontend está ubicado en la carpeta `frontend/` y su estructura principal es
 ### Resumen de patrones en el frontend
 
 - **Singleton**: `BlogList.js`, `Cart.js` (manejo de estado global de blogs y carrito)
+![Singleton](./schema_design/singleton.png)
+
 - **Command**: `BlogCommand.js`, `CartCommand.js` (acciones encapsuladas para blogs y carrito)
+![Command](./schema_design/command.png)
+
 - **Strategy**: `services/Validators/` (validación de formularios con estrategias intercambiables)
+![Strategy](./schema_design/strategy.png)
+
 - **Layout**: `index.html` (estructura base reutilizable)
 
