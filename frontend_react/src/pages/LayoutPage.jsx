@@ -1,16 +1,21 @@
 import { Outlet } from "react-router-dom";
+import BadgeIcon from "../components/badge/BadgeIcon";
+import NavbarMenu from "../components/navbarMenu/NavbarMenu";
 
 function LayoutPage() {
   return (
     <section className="layout-page">
         <div className="layout-page__image-wrapper">
-            <navbar-menu className="layout-page__menu"></navbar-menu>
+            <div className="layout-page__menu">
+                <NavbarMenu></NavbarMenu>
+            </div>
+        
             <p className="layout-page__title">SUSHI <br/> SENSATION</p>
 
             <div className="layout-page__socials">
-                <badge-icon src="/assets/img/instagram-logo-light.svg" width="18" height="18"></badge-icon>
-                <badge-icon src="/assets/img/facebook-logo-light.svg" width="18" height="18"></badge-icon>
-                <badge-icon src="/assets/img/twitter-logo-light.svg" width="18" height="18"></badge-icon>
+                <BadgeIcon src="/assets/img/instagram-logo-light.svg" width="18" height="18"></BadgeIcon>
+                <BadgeIcon src="/assets/img/facebook-logo-light.svg" width="18" height="18"></BadgeIcon>
+                <BadgeIcon src="/assets/img/twitter-logo-light.svg" width="18" height="18"></BadgeIcon>
             </div>
 
             <div className="layout-page__account">
