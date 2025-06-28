@@ -1,7 +1,17 @@
 import "./frontPage.css";
 import BadgeIcon from "../../components/badge/BadgeIcon";
+import { useLayout } from "../../context/LayoutContext";
+import { useEffect } from "react";
+import { LAYOUT_CONFIG } from "../../services/conf/LayoutConfigConst";
 
 function FrontPage() {
+
+  const { updateLayout } = useLayout();
+
+  useEffect(() => {
+    updateLayout(LAYOUT_CONFIG.FRONT_PAGE);
+  }, []);
+
   return (
     <section className="front-page">
       <div className="front-page__item">

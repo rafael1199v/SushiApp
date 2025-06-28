@@ -20,7 +20,7 @@
 
 .layout-page__image-wrapper {
     --image-url: url(/assets/img/front-page-image.jpg);
-    --image-width: 70%;
+    --image-width: 77%;
     --image--height: 94vh;
 
     background-size: cover;
@@ -208,7 +208,7 @@
 }
 
 /* .layout-page__content-main {
-    flex: 1;
+    min-height: 100%;
 } */
 
 
