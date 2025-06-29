@@ -7,6 +7,7 @@ import ProductCard from "../../components/productCard/ProductCard";
 import ProductList from "../../services/ProductList";
 import { useAuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom"
+import orderAPI from "../../services/Api/OrderAPI";
 
 import "./cartPage.css";
 
@@ -46,15 +47,21 @@ function CartPage() {
   }
 
   const placeOrder = async () => {
-    console.log("Orden", cart);
 
     if(!token) {
       navigate("/login");
+      return;
     }
-    else {
-      setProducts([]);
-      cleanCart();
-    }
+    
+    const order = {
+      total: getTotalPrice(cart, products),
+      products: cart
+    };
+
+    await orderAPI.placeOrder(order);  
+
+    setProducts([]);
+    cleanCart();
   }
 
   return (

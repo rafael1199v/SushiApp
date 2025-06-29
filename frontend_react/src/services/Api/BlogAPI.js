@@ -1,4 +1,6 @@
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 class BlogAPI {
 
     constructor(baseUrl) {
@@ -71,5 +73,5 @@ class BlogAPI {
     }
 }
 
-const blogAPI = new BlogAPI("/data");
+const blogAPI = new BlogAPI(API_URL);
 export default blogAPI;

@@ -1,3 +1,5 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 class ProductAPI {
     
     constructor(baseUrl) {
@@ -10,7 +12,7 @@ class ProductAPI {
             return JSON.parse(localStorage.getItem("products"));
         }
 
-        const response = await fetch(`${this.baseUrl}/products.json`);
+        const response = await fetch(`${this.baseUrl}/product`);
         
         if(!response.ok) {
             console.error(response.status, "Error al obtener los productos");
@@ -27,5 +29,5 @@ class ProductAPI {
 }
 
 
-const productAPI = new ProductAPI("/data");
+const productAPI = new ProductAPI(API_URL);
 export default productAPI;

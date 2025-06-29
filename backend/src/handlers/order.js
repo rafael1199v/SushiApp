@@ -17,7 +17,7 @@ export const createOrder = async (req, res) => {
     await prisma.order.create({
         data: {
             total: total,
-            createdAt: new Date(),
+            createdAt: new Date(Date.now()),
             userId: req.user.id,
             orderDetails: {
                create: productDetails

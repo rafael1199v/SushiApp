@@ -4,14 +4,20 @@ import { useLayout } from "../../context/LayoutContext";
 import { LAYOUT_CONFIG } from "../../services/conf/LayoutConfigConst";
 import ValidatorForm from "../../services/Validators/ValidatorForm";
 import ValidatorSignUpForm from "../../services/Validators/ValidatorSignUpForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import authService from "../../services/Api/AuthAPI";
+import { useAuthContext } from "../../context/AuthContext";
+
 import "./registrationPage.css";
+
 
 function RegistrationPage() {
 
   const { updateLayout } = useLayout();
   const [errors, setErrors] = useState(null);
   const [buttonDisabled, setButtonDisabled] = useState(true);
+  const navigate = useNavigate();
+  const { login } = useAuthContext();
   const [form, setForm] = useState({
     name: "",
     phoneNumber: "",
@@ -21,7 +27,7 @@ function RegistrationPage() {
     address: ""
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const validator = new ValidatorForm(new ValidatorSignUpForm());
     const formErrors = validator.validate(form);
@@ -32,8 +38,10 @@ function RegistrationPage() {
       return;
 
     try {
-      //TODO:Llamar a la Api
-      // throw new Error("ASDASDA");
+      const token = await authService.createUser(form);
+
+      login(token);
+      navigate("/");
 
       setForm({
         name: "",
@@ -45,7 +53,7 @@ function RegistrationPage() {
       });
     }
     catch(error) {
-      const generalError = { generalError: error.message};
+      const generalError = { generalError: error.message };
       setErrors(generalError);
     }
   }
