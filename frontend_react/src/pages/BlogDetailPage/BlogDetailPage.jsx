@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useLayout } from "../../context/LayoutContext";
 import { useAuthContext } from "../../context/AuthContext";
 import { LAYOUT_CONFIG } from "../../services/conf/LayoutConfigConst";
@@ -16,6 +16,7 @@ function BlogDetail() {
   const { token, userId } = useAuthContext();
   const [isEditing, setIsEditing] = useState(false);
   const textAreaRef = useRef(null);
+  const navigate = useNavigate();
 
   const getBlog = async () => {
     const filteredBlog = await blogAPI.getBlogById(id);
@@ -49,6 +50,8 @@ function BlogDetail() {
 
   const saveBlog = async() => {
     console.log(blog);
+
+    navigate("/blog");
   }
 
   useEffect(() => {
@@ -98,8 +101,9 @@ function BlogDetail() {
         <h1
           className="blog-detail-page__header-title"
           contentEditable={token && userId == blog.authorId}
-          onChange={(e) =>
-            setBlog((prevBlog) => ({ ...prevBlog, title: e.target.value }))
+          suppressContentEditableWarning={true}
+          onBlur={(e) =>
+            setBlog((prevBlog) => ({ ...prevBlog, title: e.target.textContent }))
           }
         >
           {blog.title}
