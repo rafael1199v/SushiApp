@@ -8,7 +8,6 @@ function ProductCard({ id, title, description, src, price, vegetarian, onCardCli
 
   const handleAddClick = (event) => {
     event.stopPropagation();
-    alert(`El producto con id = ${id} se ha añadido al carrito`);
     onAddClick();
   }
 

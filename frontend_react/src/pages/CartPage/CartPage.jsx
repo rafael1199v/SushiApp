@@ -5,15 +5,19 @@ import { useEffect, useState } from "react";
 import { useCart } from "../../context/CartContext";
 import ProductCard from "../../components/productCard/ProductCard";
 import ProductList from "../../services/ProductList";
+import { useAuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom"
 
 import "./cartPage.css";
 
 function CartPage() {
 
   const { updateLayout } = useLayout();
-  const { cart, quantity, addProduct, setSelectedProductId, selectedProductId } = useCart();
+  const { cart, quantity, addProduct, setSelectedProductId, cleanCart } = useCart();
   const [products, setProducts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const { token } = useAuthContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     updateLayout(LAYOUT_CONFIG.CART_PAGE);
@@ -39,6 +43,18 @@ function CartPage() {
     }
 
     return total;
+  }
+
+  const placeOrder = async () => {
+    console.log("Orden", cart);
+
+    if(!token) {
+      navigate("/login");
+    }
+    else {
+      setProducts([]);
+      cleanCart();
+    }
   }
 
   return (
@@ -85,17 +101,17 @@ function CartPage() {
           ))}
 
           { quantity > 0 && (
-            <div class="cart-page__total-info-main">
-              <div class="cart-page__total-skeleton">
+            <div className="cart-page__total-info-main">
+              <div className="cart-page__total-skeleton">
 
               </div>
 
-              <div class="cart-page__total-info">
-                  <h5 class="cart-page__total_title">
+              <div className="cart-page__total-info">
+                  <h5 className="cart-page__total_title">
                       Total
                   </h5>
-                  <div class="cart-page__total-line"></div>
-                  <h5 class="cart-page__total-price">
+                  <div className="cart-page__total-line"></div>
+                  <h5 className="cart-page__total-price">
                     { totalPrice }
                   </h5>
               </div>
@@ -105,7 +121,7 @@ function CartPage() {
       </div>
 
       <div className="cart-page__form-button">
-        <FormButton title="Place order"></FormButton>
+        <FormButton title="Place order" onClick={placeOrder}></FormButton>
       </div>
     </section>
   );
