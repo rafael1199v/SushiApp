@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import authService from "../services/Api/AuthAPI";
 
 const AuthContext = createContext();
 
@@ -20,13 +21,29 @@ export const AuthContextProvider = ({ children }) => {
         return localStorage.getItem("userId") ?? -1;
     });
 
+
+    const login = (token) => {
+
+        const payload = authService.parseToken(token);
+        const newUserId = payload.id;
+
+        localStorage.setItem("token", token);
+        localStorage.setItem("userId", newUserId);
+
+        setToken(token);
+        setUserId(userId);
+    }
+
     const logout = () => {
         setToken(null);
         setUserId(-1);
+
+        localStorage.removeItem("token");
+        localStorage.removeItem("userId");
     }
 
     return (
-        <AuthContext.Provider value={{ token, userId, setToken, setUserId , logout }}>
+        <AuthContext.Provider value={{ token, userId, setToken, setUserId , logout, login }}>
             { children }
         </AuthContext.Provider>
     );

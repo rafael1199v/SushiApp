@@ -14,6 +14,9 @@ class ValidatorLoginForm {
         if(form.password == null || !form.password.trim()) {
             errors.password = "La contraseña es requerida";
         }
+        else if(form.password.length <= 4) {
+            errors.password = "La contraseña no debe ser menor a 6 caracteres";
+        }
 
         if(Object.keys(errors).length === 0)
             errors = null

@@ -2,14 +2,19 @@ import { useEffect, useState } from "react";
 import FormButton from "../../components/formButton/FormButton";
 import { useLayout } from "../../context/LayoutContext";
 import { LAYOUT_CONFIG } from "../../services/conf/LayoutConfigConst";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ValidatorForm from "../../services/Validators/ValidatorForm";
 import ValidatorLoginForm from "../../services/Validators/ValidatorLoginForm";
+import authService from "../../services/Api/AuthAPI";
+
 import "./loginPage.css";
+import { useAuthContext } from "../../context/AuthContext";
 
 function LoginPage() {
   const { updateLayout } = useLayout();
   const [buttonDisabled, setButtonDisabled] = useState(true);
+  const navigate = useNavigate();
+  const { login } = useAuthContext();
   const [errors, setErrors] = useState(null);
   const [form, setForm] = useState({
     email: "",
@@ -38,7 +43,7 @@ function LoginPage() {
   }
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const validator = new ValidatorForm(new ValidatorLoginForm());
@@ -51,11 +56,13 @@ function LoginPage() {
 
 
     try {
-        //TODO: Agregar la llamada a la API
+        const token = await authService.login(form);
+        login(token);
+        navigate("/");
 
         setForm({
-            email: "",
-            password: "",
+          email: "",
+          password: "",
         })
     }
     catch(error) {

@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 function LayoutPage() {
   const { layoutConfig } = useLayout();
-  const { token } = useAuthContext();
+  const { token, logout } = useAuthContext();
   const { quantity, addProduct, selectedProductId } = useCart();
   const navigate = useNavigate();
 
@@ -41,7 +41,10 @@ function LayoutPage() {
             <div className="layout-page__account">
 
                 { token ? (
-                    <div className="layout-page__account-icon">
+                    <div className="layout-page__account-icon" onClick={() => {
+                        logout();
+                        navigate("/");
+                    }}>
                         <img src="/assets/img/iconamoon_profile-fill.svg" className="layout-page__icon-person"/>
                     </div>
                 ) : (
