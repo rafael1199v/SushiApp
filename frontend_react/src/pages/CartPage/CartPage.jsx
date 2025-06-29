@@ -1,8 +1,114 @@
+import FormButton from "../../components/formButton/FormButton";
+import { LAYOUT_CONFIG } from "../../services/conf/LayoutConfigConst";
+import { useLayout } from "../../context/LayoutContext";
+import { useEffect, useState } from "react";
+import { useCart } from "../../context/CartContext";
+import ProductCard from "../../components/productCard/ProductCard";
+import ProductList from "../../services/ProductList";
+
+import "./cartPage.css";
 
 function CartPage() {
+
+  const { updateLayout } = useLayout();
+  const { cart, quantity, addProduct, setSelectedProductId, selectedProductId } = useCart();
+  const [products, setProducts] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    updateLayout(LAYOUT_CONFIG.CART_PAGE);
+    const data = ProductList.instance.filterById(Object.keys(cart));
+
+    setTotalPrice(getTotalPrice(cart, data));
+    setProducts(data ?? []);
+  }, [])
+
+  useEffect(() => {
+    const data = ProductList.instance.filterById(Object.keys(cart));
+    setTotalPrice(getTotalPrice(cart, data));
+  }, [quantity])
+
+  const getTotalPrice = (cart, selectedProducts) => {
+    let total = 0;
+
+    for(const product of selectedProducts) {
+      let price = Number(product.price);
+      let productQuantity = Number(cart[product.id]);
+
+      total += (price * productQuantity);
+    }
+
+    return total;
+  }
+
   return (
-    <div>CartPage</div>
-  )
+    <section className="cart-page">
+      <div className="cart-page__content">
+        <div className="cart-page__title">
+          <div className="cart-page__category-logo">
+            <img
+              src="/assets/img/diamondIcon.svg"
+              className="cart-page__logo-diamond"
+            />
+            <div className="cart-page__logo-line"></div>
+          </div>
+
+          <h1 className="cart-page__title-content">My cart</h1>
+
+          <div className="cart-page__category-logo">
+            <div className="cart-page__logo-line"></div>
+            <img
+              src="/assets/img/diamondIcon.svg"
+              className="cart-page__logo-diamond"
+            />
+          </div>
+        </div>
+
+        <div className="cart-page__information">
+          { products.map(product => (
+            <ProductCard 
+              key={product.id} 
+              id={product.id} 
+              title={product.name} 
+              src={product.imageUrl} 
+              price={`${product.price} X ${cart[product.id]} = $${Number(product.price) * Number(cart[product.id])}`} 
+              vegetarian={product.vegetarian}
+              description={product.description}
+              onCardClick={() => {
+                updateLayout({ backgroundUrl: product.imageUrl, backgroundWidth: '928px', title: product.name, showAddbutton: true });
+                setSelectedProductId(product.id);
+              }}
+              onAddClick={() => {
+                addProduct(product.id);
+              }}
+            />
+          ))}
+
+          { quantity > 0 && (
+            <div class="cart-page__total-info-main">
+              <div class="cart-page__total-skeleton">
+
+              </div>
+
+              <div class="cart-page__total-info">
+                  <h5 class="cart-page__total_title">
+                      Total
+                  </h5>
+                  <div class="cart-page__total-line"></div>
+                  <h5 class="cart-page__total-price">
+                    { totalPrice }
+                  </h5>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="cart-page__form-button">
+        <FormButton title="Place order"></FormButton>
+      </div>
+    </section>
+  );
 }
 
-export default CartPage
+export default CartPage;

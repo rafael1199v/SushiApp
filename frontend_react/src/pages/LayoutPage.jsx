@@ -50,7 +50,7 @@ function LayoutPage() {
                     </button>
                 )}
               
-                <div className="layout-page__account-icon layout-page__account-icon--cart">
+                <div className="layout-page__account-icon layout-page__account-icon--cart" onClick={() => navigate("/cart")}>
                     <img src="/assets/img/cart.svg" className="layout-page__icon-cart"/>
                     { quantity > 0 && (
                         <div className="layout-page__icon-cart-count">{ quantity }</div>

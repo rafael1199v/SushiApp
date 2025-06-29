@@ -23,6 +23,7 @@ export const CartContextProvider = ({ children }) => {
 
         cart[productId] += 1;
         
+        setCart((prev) => ({...prev}));
         setQuantity((prevQuantity) => prevQuantity + 1);
 
         console.log(cart);
