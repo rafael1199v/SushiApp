@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useLayout } from "../../context/LayoutContext";
 import { useAuthContext } from "../../context/AuthContext";
-import BlogList from "../../services/BlogList";
 import { LAYOUT_CONFIG } from "../../services/conf/LayoutConfigConst";
 import FormButton from "../../components/formButton/FormButton";
 import { formatDateTime } from "../../utils/Time";
@@ -35,9 +34,7 @@ function BlogDetail() {
       let newLine = "";
 
       if (line.startsWith("# ")) {
-        newLine = `<h2 class="blog-detail-page__description--title">${line.substring(
-          2
-        )}</h1>`;
+        newLine = `<h2 class="blog-detail-page__description--title">${line.substring(2)}</h1>`;
       } else if (line.trim() === "" || line.trim() === "---") {
         newLine = `<br>`;
       } else {
@@ -50,10 +47,22 @@ function BlogDetail() {
     return lines.join("");
   };
 
+  const saveBlog = async() => {
+    console.log(blog);
+  }
+
   useEffect(() => {
-    console.log(id);
     getBlog();
   }, []);
+
+
+
+  useEffect(() => {
+    if (isEditing && textAreaRef.current) {
+      textAreaRef.current.focus();
+      textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
+    }
+  }, [isEditing]);
 
   if (!blog) {
     return <p>Cargando..</p>;
@@ -88,7 +97,7 @@ function BlogDetail() {
 
         <h1
           className="blog-detail-page__header-title"
-          contentEditable={userId === blog.authorId}
+          contentEditable={token && userId == blog.authorId}
           onChange={(e) =>
             setBlog((prevBlog) => ({ ...prevBlog, title: e.target.value }))
           }
@@ -121,16 +130,16 @@ function BlogDetail() {
               setBlog((prevBlog) => ({ ...prevBlog, content: e.target.value }))
             }
             onBlur={() => setIsEditing(false)}
-            autoFocus
+            onInput={() => textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px"}
           />
         ) : (
           <div
             className="blog-detail-page__description-preview"
             onClick={() => {
-              if (userId != blog.authorId) {
-                //console.log(userId, blog.authorId);
+              if (!token || userId != blog.authorId) {
                 return;
               }
+              
               setIsEditing(true);
             }}
             dangerouslySetInnerHTML={{ __html: getPreview(blog.content) }}
@@ -141,7 +150,9 @@ function BlogDetail() {
           Author: {blog.users.name}
         </div>
 
-        {token && <FormButton title="Save"></FormButton>}
+        {token && userId == blog.authorId && (
+          <FormButton title="Save" onClick={saveBlog}></FormButton>
+        )}
       </div>
     </section>
   );
