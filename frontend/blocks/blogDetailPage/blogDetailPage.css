@@ -127,4 +127,12 @@
     resize: none;
 }
 
+@media screen and (max-width: 1024px) {
+    .blog-detail-page{
+        padding: 3rem;
+    }
+    .blog-detail-page__header-title{
+        font-size: 3rem;
+    }
+}
 

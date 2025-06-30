@@ -55,6 +55,7 @@ class MenuPage extends BaseHTMLElement {
 
             for(let product of categoryProducts[category]) {
                 const productElement = document.createElement("product-card");
+                productElement.classList.add("menu-page__item");
                 productElement.dataset.title = product.name;
                 productElement.dataset.description = product.description;
                 productElement.dataset.src = product.imageUrl;

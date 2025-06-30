@@ -78,6 +78,11 @@
     gap: 2rem;
 }
 
+.menu-page__item {
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (max-width: 768px) {
     .menu-page {
         padding: 1rem 2rem 3rem 2rem;

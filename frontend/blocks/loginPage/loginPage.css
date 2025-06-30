@@ -101,3 +101,9 @@
     font-weight: 400;
     color: rgba(169, 125, 92, 1);
 }
+
+@media screen and (max-width: 1024px) {
+    .login-page {
+        padding: 3rem;
+    }
+}

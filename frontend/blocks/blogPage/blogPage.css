@@ -85,3 +85,21 @@
 .blog-page__card--clickeable {
     cursor: pointer;
 }
+
+@media screen and (max-width: 1024px){
+    .blog-page {
+        padding: 3rem;
+    }
+
+    .blog-page__title-content {
+        font-size: 30px;
+    }
+
+    .blog-page__nav {
+        gap: 1rem;
+    }
+
+    .blog-page__nav-item {
+        font-size: 14px;
+    }
+}
