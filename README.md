@@ -70,3 +70,6 @@ El frontend está ubicado en la carpeta `frontend/` y su estructura principal es
 ## Figma
 [Link al figma](https://www.figma.com/design/ZFRTKSfgtjtv0mIJXLP2aw/ExamenFinal---AppsWeb---Rafael-Vargas?node-id=0-1&t=Tp6fUMub07pRFeaH-1)
 
+## Link a la documentación
+[Link documentacion](https://docs.google.com/document/d/1Qo7UXvcea3xvJpBLkS8GTzF6zCBQ4jsfjU-l-McJOG8/edit?usp=sharing)
+
