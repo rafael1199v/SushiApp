@@ -147,9 +147,6 @@ class MenuPage extends BaseHTMLElement {
 
 
     loadModeProducts(categoryId, moreProducts) {
-        const blocks = Array.from(this.shadowRoot.querySelectorAll(".menu-page__block-observer"));
-        const mainBlock = blocks.find(block => block.dataset.categoryId == categoryId);
-
         const listItems = Array.from(this.shadowRoot.querySelectorAll(".menu-page__category__items"));
         const listSelected = listItems.find(block => block.dataset.categoryId == categoryId);
        
