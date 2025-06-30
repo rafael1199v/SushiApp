@@ -14,7 +14,7 @@ class ProductAPI {
             return JSON.parse(localStorage.getItem("products"));
         }
 
-        const url = `${this.baseUrl}/products.json`;
+        const url = `${this.baseUrl}/product`;
 
         const response = await fetch(url);
 
@@ -56,5 +56,5 @@ class ProductAPI {
 }
 
 
-const productAPI = new ProductAPI("/data");
+const productAPI = new ProductAPI(API_URL);
 export default productAPI;
