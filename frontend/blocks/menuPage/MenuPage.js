@@ -8,6 +8,12 @@ class MenuPage extends BaseHTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
+
+        this.pageCategories = {
+            [CATEGORY.MAKI]: 0,
+            [CATEGORY.URAMAKI]: 0,
+            [CATEGORY.SPECIAL_ROLL]: 0
+        };
     }
 
     connectedCallback() {
@@ -42,6 +48,7 @@ class MenuPage extends BaseHTMLElement {
             const section = template.content.cloneNode(true).firstElementChild;
             const categoryTitle = section.querySelector(".menu-page__category-title-content");
             const items = section.querySelector(".menu-page__category__items");
+            items.dataset.categoryId = category;
 
             if(category == CATEGORY.MAKI)
                 categoryTitle.textContent = "Maki";
@@ -67,10 +74,40 @@ class MenuPage extends BaseHTMLElement {
             }
 
             fragment.appendChild(section);
+
+            const containerObserver = document.createElement("div");
+            
+            containerObserver.classList.add("menu-page__block-observer");
+            containerObserver.dataset.categoryId = category;
+
+
+            const intersectionObserver = new IntersectionObserver(async (entries) => {
+                for(const entry of entries) {
+                    if(entry.isIntersecting) {
+
+                        const categoryId = entry.target.dataset.categoryId;
+                        console.log("Se ha intersectado la categoria", categoryId);
+                        const pageNumber = this.pageCategories[entry.target.dataset.categoryId] + 1;
+
+                        const moreProducts = await productAPI.getModeProducts(pageNumber, categoryId);
+
+                        this.loadModeProducts(categoryId, moreProducts);
+
+                        this.pageCategories[entry.target.dataset.categoryId] += 1;
+
+                        
+                    }
+                }
+            });
+
+            intersectionObserver.observe(containerObserver);
+
+            fragment.appendChild(containerObserver);
         }
 
-       content.appendChild(fragment);
 
+       content.appendChild(fragment);
+       
     }
 
 
@@ -87,6 +124,12 @@ class MenuPage extends BaseHTMLElement {
             const categoryId = event.target.parentElement.dataset.categoryId;
             const filteredCategoryProducts = ProductList.instance.groupByCategories();
 
+            this.pageCategories = { 
+                [CATEGORY.MAKI]: 0,
+                [CATEGORY.URAMAKI]: 0,
+                [CATEGORY.SPECIAL_ROLL]: 0
+            }
+
             if(categoryId == CATEGORY.ALL){
                 this.renderProducts(filteredCategoryProducts);
             }
@@ -100,6 +143,32 @@ class MenuPage extends BaseHTMLElement {
             }
            
         });
+    }
+
+
+    loadModeProducts(categoryId, moreProducts) {
+        const blocks = Array.from(this.shadowRoot.querySelectorAll(".menu-page__block-observer"));
+        const mainBlock = blocks.find(block => block.dataset.categoryId == categoryId);
+
+        const listItems = Array.from(this.shadowRoot.querySelectorAll(".menu-page__category__items"));
+        const listSelected = listItems.find(block => block.dataset.categoryId == categoryId);
+       
+        const fragment = new DocumentFragment();
+
+        for(let product of moreProducts) {
+            const productElement = document.createElement("product-card");
+            productElement.classList.add("menu-page__item");
+            productElement.dataset.title = product.name;
+            productElement.dataset.description = product.description;
+            productElement.dataset.src = product.imageUrl;
+            productElement.dataset.price = `$${product.price}`;
+            productElement.dataset.productId = product.id;
+            productElement.dataset.vegetarian = product.vegetarian;
+
+            fragment.appendChild(productElement);
+        }
+
+        listSelected.appendChild(fragment);
     }
 
 

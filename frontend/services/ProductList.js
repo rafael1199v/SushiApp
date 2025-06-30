@@ -32,14 +32,24 @@ class ProductList {
 
     groupByCategories() {
         const result = {};
+        const counter = {};
 
         for(let product of this.#products) {
             const categoryId = product.categoryId;
 
-            if(!result[categoryId])
+            if(!result[categoryId]) {
                 result[categoryId] = [];
+            }
 
-            result[categoryId].push(product);
+            if(!counter[categoryId]) {
+                counter[categoryId] = 1;
+            }
+            else {
+                counter[categoryId] += 1;
+            }
+                
+            if(counter[categoryId] <= 3)
+                result[categoryId].push(product);
         }
 
         return result;

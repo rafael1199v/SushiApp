@@ -83,6 +83,12 @@
     justify-content: center;
 }
 
+.menu-page__block-observer {
+    width: 50%;
+    height: 100px;
+    border: 2px solid red;
+}
+
 @media screen and (max-width: 768px) {
     .menu-page {
         padding: 1rem 2rem 3rem 2rem;
