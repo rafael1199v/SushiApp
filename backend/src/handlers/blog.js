@@ -61,6 +61,34 @@ export const getBlogs = async (req, res) => {
 }
 
 
+export const getBlog = async(req, res) => {
+    const blogId = Number(req.params["id"]);
+
+    let blog = await prisma.blog.findUnique({
+        where: {
+            id: blogId
+        },
+        include: {
+            users: {
+                select: {
+                    name: true
+                }
+            }
+        }
+    });
+
+    if(Object.is(blog, null))
+        res.sendStatus(404);
+
+    blog = {
+        ...blog,
+        content: blog.content.replace(/\\n/g, "\n")
+    }
+
+    return res.json(blog)
+}
+
+
 export const likeBlog = async (req, res) => {    
     const userId = req.user.id;
     const favoriteBlogId = Number(req.params["id"]);

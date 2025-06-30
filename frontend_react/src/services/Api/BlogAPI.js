@@ -8,7 +8,7 @@ class BlogAPI {
     }
 
     async getAllBlogs() {
-        const url = `${this.baseUrl}/blogs.json`;
+        const url = `${this.baseUrl}/blog`;
         const response = await fetch(`${url}`, {
             method: "GET",
             headers: { "Authorization": `bearer ${localStorage.getItem("token") ?? ""}`}
@@ -25,9 +25,25 @@ class BlogAPI {
     }
 
     async getBlogById(blogId) { 
-        const blogs = await this.getAllBlogs();
+        const url = `${this.baseUrl}/blog/${blogId}`;
 
-        return blogs.filter(blog => blog.id == blogId)[0];
+        try {
+            const response = await fetch(url);
+
+            if(!response.ok)
+                throw new Error("No se pudo encontrar el blog");
+
+            const blog = await response.json();
+
+            return blog;
+        }
+        catch(error) {
+            console.error(error);
+            throw new Error(error);
+        }
+        
+
+
     }
 
     async likeBlog(blogId) {
@@ -39,6 +55,9 @@ class BlogAPI {
         if(!response.ok) {
             console.error("No se pudo actualizar los blogs");
         }
+        else {
+            console.log("Blog agregado a favoritos");
+        }
     }
 
     async unlikeBlog(blogId) {
@@ -49,6 +68,9 @@ class BlogAPI {
 
         if(!response.ok) {
             console.error("No se pudo actualizar los blogs");
+        }
+        else {
+            console.log("Blog eliminado de favoritos");
         }
     }
 

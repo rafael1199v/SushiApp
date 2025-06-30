@@ -1,5 +1,6 @@
-import FormButton from "../../components/formButton/FormButton";
 import "./reservationPage.css";
+
+import FormButton from "../../components/formButton/FormButton";
 import { useEffect } from "react";
 import { LAYOUT_CONFIG } from "../../services/conf/LayoutConfigConst";
 import { useLayout } from "../../context/LayoutContext";
@@ -8,9 +9,13 @@ import { useState } from "react";
 import ValidatorForm from "../../services/Validators/ValidatorForm";
 import ValidatorWithoutSession from "../../services/Validators/ValidatorWithoutSession";
 import ValidatorWithSessionForm from "../../services/Validators/ValidatorWithSessionForm";
+import reservationAPI from "../../services/Api/ReservationAPI";
+import { useNavigate } from "react-router-dom";
+
 
 function ReservationPage() {
 
+  const navigate = useNavigate();
   const { updateLayout } = useLayout();
   const { token } = useAuthContext();
   const [errors, setErrors] = useState(null);
@@ -25,7 +30,7 @@ function ReservationPage() {
 
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
   
     const validator = new ValidatorForm();
@@ -40,6 +45,37 @@ function ReservationPage() {
 
     formErrors = validator.validate(reservation);
     setErrors(formErrors);
+
+
+    if(formErrors)
+      return;
+
+    try {
+      const reservationForm = {
+        guests: reservation.guests,
+        date : reservation.date,
+        time: reservation.time + ":00",
+      };
+      
+      if(!token) {
+        
+        reservationForm.email = reservation.email;
+        reservationForm.phoneNumber = reservation.phoneNumber;
+        reservationForm.name = reservation.name;
+
+        await reservationAPI.reservateWithoutSession(reservationForm);
+      }
+      else {
+        await reservationAPI.reservateWithSession(reservationForm);
+      }
+
+      navigate("/");
+    }
+    catch(error) {
+      const generalError = { generalError: error.message };
+      setErrors(generalError);
+    }
+
     setReservation({
       name: "",
       phoneNumber: "",
@@ -222,10 +258,13 @@ function ReservationPage() {
           </div>
         </div>
 
-        <div
-          className="reservation-page__form-error reservation-page__input-content-error"
-          id="form-error"
-        ></div>
+        { errors && errors.generalError && (
+           <div
+            className="reservation-page__form-error reservation-page__input-content-error"
+            id="form-error"
+          >{ errors.generalError }</div>
+        )}
+       
 
         <div className="reservation-page__button">
           <FormButton title="Reserve"></FormButton>

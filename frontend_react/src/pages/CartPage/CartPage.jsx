@@ -47,12 +47,14 @@ function CartPage() {
   }
 
   const placeOrder = async () => {
+    if(quantity <= 0)
+      return;
 
     if(!token) {
       navigate("/login");
       return;
     }
-    
+
     const order = {
       total: getTotalPrice(cart, products),
       products: cart

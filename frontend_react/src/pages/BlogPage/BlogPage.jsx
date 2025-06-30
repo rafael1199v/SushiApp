@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLayout } from "../../context/LayoutContext";
 import { LAYOUT_CONFIG } from "../../services/conf/LayoutConfigConst";
 import blogAPI from "../../services/Api/BlogAPI";
 import BlogCard from "../../components/blogCard/BlogCard";
 import { useAuthContext } from "../../context/AuthContext";
-import BlogList from "../../services/BlogList";
 import { useNavigate } from "react-router-dom";
 
 import "./blogPage.css";
@@ -14,12 +13,13 @@ function Blog() {
   const [blogs, setBlogs] = useState([]);
   const { token, userId } = useAuthContext();
   const [showStars, setShowStars] = useState(false);
+  const blogRealList = useRef([]);
   const navigate = useNavigate();
 
   const getBlogs = async() => {
     const data = await blogAPI.getAllBlogs();
-    BlogList.instance.setBlogs(data);
-    setBlogs(data);
+    blogRealList.current = data;
+    setBlogs(data.map(blog => ({...blog})));
   }
 
   useEffect(() => {
@@ -31,30 +31,43 @@ function Blog() {
   }, []);
 
   const filterFavoriteBlogs = () => {
-    const favoriteBlogs = BlogList.instance.getFavorites();
+    const favoriteBlogs = blogRealList.current.filter(blog => blog.favorite == true);
     setBlogs(favoriteBlogs);
     setShowStars(true);
   }
 
   const filterOwnBlogs = () => {
-    const ownBlogs = BlogList.instance.getMyArticles(userId);
+    const ownBlogs = blogRealList.current.filter(blog => blog.authorId == userId);
     setBlogs(ownBlogs);
     setShowStars(false);
   }
 
   const filterAllBlogs = () => {
-    const allBlogs = BlogList.instance.blogs;
+    const allBlogs = blogRealList.current;
     setBlogs(allBlogs);
     setShowStars(true);
   }
 
   const handleToggleFavorite = (blogId) => {
+
+    const currentBlog = blogs.find(blog => blog.id === blogId);
+    const currentFavoriteState = currentBlog.favorite;
+    
     setBlogs(prevBlogs => 
-      prevBlogs.map(blog => 
-        blog.id === blogId ? {...blog, favorite: !blog.favorite}
-        : blog
-      )
+      prevBlogs.map(prevBlog => 
+        (prevBlog.id == blogId ? {...prevBlog, favorite: !currentFavoriteState} : prevBlog))
+    ); 
+
+    blogRealList.current = blogRealList.current.map(blog => 
+      (blog.id == blogId ? {...blog, favorite: !currentFavoriteState} : blog)
     );
+
+    if (currentFavoriteState) {
+        blogAPI.unlikeBlog(blogId);
+    } else {
+        blogAPI.likeBlog(blogId);
+    }
+       
   }
 
   return (
@@ -113,7 +126,6 @@ function Blog() {
             showStar={showStars}
             onClickCard={() => navigate(`/blog/${blog.id}`)}
             onClickFavorite={() => {
-              console.log("Favorito o no xd?", blog.id)
               handleToggleFavorite(blog.id);
             }}
           />

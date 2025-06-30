@@ -49,15 +49,20 @@ function BlogDetail() {
   };
 
   const saveBlog = async() => {
-    console.log(blog);
+    
+    try {
+      await blogAPI.saveBlog(blog.id, blog.title, blog.content);
+      navigate("/blog");
+    }
+    catch(error) {
+      console.error(error.message);
+    }
 
-    navigate("/blog");
   }
 
   useEffect(() => {
     getBlog();
   }, []);
-
 
 
   useEffect(() => {
