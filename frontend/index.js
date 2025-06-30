@@ -16,6 +16,7 @@ import BlogPage from "./blocks/blogPage/BlogPage.js";
 import BlogCard from "./blocks/blogCard/BlogCard.js";
 import ContactPage from "./blocks/contactPage/ContactPage.js";
 import BlogDetailPage from "./blocks/blogDetailPage/BlogDetailPage.js";
+import BlogCreatePage from "./blocks/blogCreatePage/BlogCreatePage.js";
 
 import layout from "./services/Layout.js";
 

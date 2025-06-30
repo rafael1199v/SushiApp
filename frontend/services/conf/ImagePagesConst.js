@@ -78,5 +78,13 @@ export const IMAGE_PAGES = {
         title: '',
         socials: false,
         footer: true
+    },
+    BLOG_CREATE_PAGE: {
+        url: '/assets/img/blog1.png',
+        width: '928px',
+        height: '94vh',
+        title: "Post",
+        socials: false,
+        footer: true
     }
 };

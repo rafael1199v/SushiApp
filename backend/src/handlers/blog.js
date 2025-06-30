@@ -161,3 +161,27 @@ export const updateBlog = async(req, res) => {
     }
     
 }
+
+
+export const createBlog = async(req, res) => {
+    
+    try {
+        const blog = await prisma.blog.create({
+            data: {
+                title: req.body.title,
+                description: req.body.description,
+                content: req.body.content,
+                date: new Date(Date.now()),
+                imageUrl: req.body.imageUrl,
+                authorId: req.user.id
+            }
+        });
+
+        res.status(201);
+        res.json(blog);
+    }
+    catch(error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+}

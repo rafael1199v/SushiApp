@@ -86,6 +86,14 @@
     cursor: pointer;
 }
 
+.blog-page__create-button--hidden {
+    display: none;
+}
+
+.blog-page__create-button--show {
+    display: block;
+}
+
 @media screen and (max-width: 1024px){
     .blog-page {
         padding: 3rem;

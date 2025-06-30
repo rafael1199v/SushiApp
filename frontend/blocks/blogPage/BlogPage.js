@@ -20,14 +20,21 @@ class BlogPage extends BaseHTMLElement {
         await this.loadHTML("/blocks/blogPage/blogPage.template");
         await this.getBlogs();
         
-        
+        const creatButton = this.shadowRoot.querySelector(".blog-page__create-button");
 
         if(authService.isLoggedIn()) {
             this.addNav();
             this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, true);
+            creatButton.classList.remove("blog-page__create-button--hidden");
+            creatButton.classList.add("blog-page__create-button--show");
+
+            creatButton.addEventListener("click", () => {
+                globalThis.app.router.go("/blog/create");
+            })
         }
         else {
             const nav = this.shadowRoot.querySelector(".blog-page__nav");
+            
             nav.style.display = "none";
             this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, false);
         }

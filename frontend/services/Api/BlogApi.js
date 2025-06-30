@@ -91,6 +91,22 @@ class BlogAPI {
             console.error("No se pudo actualizar el blog");
         }
     }
+
+    async createBlog(blog) {
+        const url = `${this.baseUrl}/blog`;
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `bearer ${localStorage.getItem("token") ?? ""}`
+            },
+            body: JSON.stringify(blog)
+        });
+
+        if(!response.ok) {
+            throw new Error("No fue posible crear el blog");
+        }
+    }
 }
 
 const blogAPI = new BlogAPI(API_URL);
