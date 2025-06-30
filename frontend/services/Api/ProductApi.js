@@ -43,7 +43,7 @@ class ProductAPI {
         products = products.filter(product => product.categoryId == categoryId);
 
         const indexLeft = page * 3;
-        const indexRigth = indexLeft + 2;
+        const indexRigth = indexLeft + 3;
 
         products = products.slice(indexLeft, indexRigth);
 

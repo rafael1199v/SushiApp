@@ -3,9 +3,10 @@ import authService from "./AuthService.js";
 class BlogList {
 
     #blogs = [];
+    page = 0;
 
     get blogs() {
-        return this.#blogs;
+        return this.sliceBlogs(this.#blogs);
     }
 
     static instance = null;
@@ -25,12 +26,12 @@ class BlogList {
 
     getFavorites() {
         const favoriteBlogs = this.#blogs.filter(blog => blog.favorite == true);
-        return favoriteBlogs;
+        return this.sliceBlogs(favoriteBlogs);
     }
 
     getMyArticles() {
         const myArticles = this.#blogs.filter(blog => blog.authorId == authService.getUserId());
-        return myArticles;
+        return this.sliceBlogs(myArticles);
     }
 
 
@@ -53,6 +54,18 @@ class BlogList {
 
         blog.title = newTitle;
         blog.content = newContent;
+    }
+
+    sliceBlogs(blogs) {
+        const indexLeft = this.page * 3;
+        const indexRigth = indexLeft + 3;
+        
+        this.page += 1;
+        return blogs.slice(indexLeft, indexRigth);
+    }
+
+    reset() {
+        this.page = 0;
     }
 
     

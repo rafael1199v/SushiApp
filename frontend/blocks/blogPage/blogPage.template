@@ -35,4 +35,8 @@
     <div class="blog-page__blogs">
         
     </div>
+
+    <div class="blog-page__block-observer">
+
+    </div>
 </section>

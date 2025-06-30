@@ -9,6 +9,9 @@ class BlogPage extends BaseHTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
+
+        this.filter = "all";
+        BlogList.instance.reset();
     }
 
 
@@ -24,7 +27,7 @@ class BlogPage extends BaseHTMLElement {
 
         if(authService.isLoggedIn()) {
             this.addNav();
-            this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, true);
+            this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, true, true);
             creatButton.classList.remove("blog-page__create-button--hidden");
             creatButton.classList.add("blog-page__create-button--show");
 
@@ -36,20 +39,48 @@ class BlogPage extends BaseHTMLElement {
             const nav = this.shadowRoot.querySelector(".blog-page__nav");
             
             nav.style.display = "none";
-            this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, false);
+            this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, false, true);
         }
 
+        const observedBlock = this.shadowRoot.querySelector(".blog-page__block-observer");
+
+        const intersectionObserver = new IntersectionObserver((entries) => {
+            for(const entry of entries) {
+                if(entry.isIntersecting) {
+
+                    let moreBlogs = [];
+
+                    if(this.filter == "all"){
+                        moreBlogs = BlogList.instance.blogs;
+                        this.renderBlogs(moreBlogs, this.normalCardAddEventListener, true, authService.isLoggedIn(), false);
+                    }
+                    else if(this.filter == "favorites") {
+                        moreBlogs = BlogList.instance.getFavorites();
+                        this.renderBlogs(moreBlogs, this.normalCardAddEventListener, true, authService.isLoggedIn(), false);
+                    }
+                    else if(this.filter == "articles") {
+                        moreBlogs = BlogList.instance.getMyArticles();
+                        this.renderBlogs(moreBlogs, this.normalCardAddEventListener, true, false, false);
+                    }
+
+                    
+                }
+            }
+        });
+
+        intersectionObserver.observe(observedBlock);
     }
 
     async getBlogs() {
         BlogList.instance.setBlogs(await blogAPI.getAllBlogs());
     }
 
-    renderBlogs(blogs, addEventListenerCard, clickeable, showStar) {
+    renderBlogs(blogs, addEventListenerCard, clickeable, showStar, reset) {
         const blogContainer = this.shadowRoot.querySelector(".blog-page__blogs");
         const fragment = new DocumentFragment();
-
-        blogContainer.innerHTML = "";
+        
+        if(reset)
+            blogContainer.innerHTML = "";
 
         for(let blog of blogs){
             const card = document.createElement("blog-card");
@@ -85,15 +116,21 @@ class BlogPage extends BaseHTMLElement {
         news.focus();
 
         news.addEventListener("click", () => {
-            this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, true);
+            BlogList.instance.reset();
+            this.filter = "all";
+            this.renderBlogs(BlogList.instance.blogs, this.normalCardAddEventListener, true, true, true);
         });
 
         favorites.addEventListener("click", () => {
-            this.renderBlogs(BlogList.instance.getFavorites(), this.normalCardAddEventListener, true, true);
+            BlogList.instance.reset();
+            this.filter = "favorites";
+            this.renderBlogs(BlogList.instance.getFavorites(), this.normalCardAddEventListener, true, true, true);
         });
 
         articles.addEventListener("click", () => {
-            this.renderBlogs(BlogList.instance.getMyArticles(), this.normalCardAddEventListener, true, false);
+            BlogList.instance.reset();
+            this.filter = "articles";
+            this.renderBlogs(BlogList.instance.getMyArticles(), this.normalCardAddEventListener, true, false, true);
         });
     }
    
