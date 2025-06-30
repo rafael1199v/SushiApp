@@ -10,7 +10,7 @@ export const LAYOUT_CONFIG = {
     },
     MENU_PAGE: {
         backgroundUrl: '/assets/img/menu-page.png',
-        backgroundWidth: '928px',
+        backgroundWidth: '50%',
         backgroundHeight: '94vh',
         title: 'Menu',
         showSocials: false,
@@ -19,7 +19,7 @@ export const LAYOUT_CONFIG = {
     },
     BOOK_TABLE_PAGE: {
         backgroundUrl: '/assets/img/book-table-page.png',
-        backgroundWidth: '928px',
+        backgroundWidth: '50%',
         backgroundHeight: '94vh',
         title: 'Book a table',
         showSocials: false,
@@ -28,7 +28,7 @@ export const LAYOUT_CONFIG = {
     },
     ABOUT_PAGE: {
         backgroundUrl: '/assets/img/about-page.png',
-        backgroundWidth: '928px',
+        backgroundWidth: '50%',
         backgroundHeight: '94vh',
         title: 'About',
         showSocials: false,
@@ -37,7 +37,7 @@ export const LAYOUT_CONFIG = {
     },
     CONTACT_PAGE: {
         backgroundUrl: '/assets/img/contact-page.png',
-        backgroundWidth: '928px',
+        backgroundWidth: '50%',
         backgroundHeight: '94vh',
         title: 'Contact',
         showSocials: false,
@@ -46,7 +46,7 @@ export const LAYOUT_CONFIG = {
     },
     BLOG_PAGE: {
         backgroundUrl: '/assets/img/blog-page.png',
-        backgroundWidth: '928px',
+        backgroundWidth: '50%',
         backgroundHeight: '94vh',
         title: 'Blog',
         showSocials: false,
@@ -55,7 +55,7 @@ export const LAYOUT_CONFIG = {
     },
     LOGIN_PAGE: {
         backgroundUrl: '/assets/img/login-page.png',
-        backgroundWidth: '928px',
+        backgroundWidth: '50%',
         backgroundHeight: '94vh',
         title: 'Login',
         showSocials: false,
@@ -64,7 +64,7 @@ export const LAYOUT_CONFIG = {
     },
     CART_PAGE: {
         backgroundUrl: '/assets/img/menu-page.png',
-        backgroundWidth: '928px',
+        backgroundWidth: '50%',
         backgroundHeight: '94vh',
         title: 'Cart',
         showSocials: false,
@@ -73,7 +73,7 @@ export const LAYOUT_CONFIG = {
     },
     SIGN_UP_PAGE: {
         backgroundUrl: '/assets/img/login-page.png',
-        backgroundWidth: '928px',
+        backgroundWidth: '50%',
         backgroundHeight: '94vh',
         title: 'Registration',
         showSocials: false,
@@ -82,7 +82,7 @@ export const LAYOUT_CONFIG = {
     },
     BLOG_DETAIL_PAGE: {
         backgroundUrl: '/assets/img/blog1.png',
-        backgroundWidth: '928px',
+        backgroundWidth: '55%',
         backgroundHeight: '94vh',
         title: '',
         showSocials: false,
