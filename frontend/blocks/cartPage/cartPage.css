@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+:host {
+    width: 100%;
+    display: block;
+} */
+
+.cart-page {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 6rem 6rem 5rem 6rem;
+    align-items: center;
+    border: 1px solid rgba(239, 231, 210, 0.15);
+    border-radius: 1rem;
+}
+
+
+.cart-page__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.cart-page__title {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+
+.cart-page__title-content {
+    font-family: "Forum", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: rgba(239, 231, 210, 1);
+    text-transform: uppercase;
+}
+
+
+.cart-page__category-logo {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    align-items: center;
+}
+
+.cart-page__logo-line {
+    width: 50px;
+    height: 1px;
+    background-color: rgba(239, 231, 210, 0.15);
+}
+
+.cart-page__form-button {
+    width: 100%
+}
+
+
+.cart-page__information {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.cart-page__total-skeleton {
+    background-color: rgba(10, 11, 10, 1);
+    width: 150px;
+    height: 100px;
+    border-radius: 16px;
+}
+
+.cart-page__total-info-main {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.cart-page__total_title, .cart-page__total-price {
+    color: rgba(239, 231, 210, 1);
+    font-family: "Forum", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cart-page__total-info {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    flex: 1;
+}
+
+
+.cart-page__total-line {
+    height: 1px;
+    flex: 1;
+    border-bottom: 1px dashed rgba(239, 231, 210, 0.15);
+    align-self: flex-end;
+    margin-bottom: 4px;
+}
+
+@media screen and (max-width: 1024px) {
+    .cart-page__total-skeleton{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1920px){
+    .contact-page__images-second-section{
+        display: none;
+    }
+    .contact-page__images-first-section{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .contact-page__images-first-section{
+        display: none;
+    }
+    .contact-page__first-section {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .contact-page__opening,
+    .contact-page__contact {
+        padding: 2.5rem 2rem 2rem 2rem;
+    }
+
+    .contact-page__images-first-section,
+    .contact-page__images-second-section {
+        justify-content: center;
+    }
+
+    .contact-page__image-wrapper {
+        max-width: 200px;
+        max-height: 206px;
+    }
+
+    .contact-page__second-section {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .contact-page__map {
+        max-width: 100%;
+        max-height: 350px;
+    }
+
+    .contact-page__title-content {
+        font-size: 22px;
+    }
+
+    .contact-page__information-content-right {
+        width: 60%;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact-page {
+        gap: 1.5rem;
+        padding: 1rem 0;
+    }
+
+    .contact-page__opening,
+    .contact-page__contact {
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+    }
+
+    .contact-page__title-content {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .contact-page__opening-title,
+    .contact-page__contact-title {
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-page__images-first-section,
+    .contact-page__images-second-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-page__image-wrapper {
+        max-width: 280px;
+        max-height: 200px;
+    }
+
+    .contact-page__map {
+        max-height: 300px;
+    }
+
+    .contact-page__button {
+        padding: 0.5rem 0rem 0rem 1rem;
+        font-size: 14px;
+        gap: 0.5rem;
+    }
+
+    .contact-page__hour-item {
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .contact-page__hour-line {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .contact-page__information-item {
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .contact-page__information-content-right {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .contact-page__information-content-left {
+        font-size: 11px;
+    }
+}
