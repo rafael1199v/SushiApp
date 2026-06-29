@@ -1,4 +1,4 @@
-# ExamenFinal-AplicacionesWeb
+# SushiApp
 
 ## Estructura General del Proyecto
 
